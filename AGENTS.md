@@ -124,3 +124,13 @@ Never use the CSS defaults `ease` or `linear` for UI.
 - **Responsiveness:** works at 390 / 768 / 1280 / 1440 widths, at 1280×720 (projector), and at 150% zoom.
 - **Bilingual:** EN/AR with a real RTL mirror, using logical CSS properties (`ms-`/`me-`/`ps-`/`pe-`, `start`/`end`).
 - **Priorities:** P0 (the demo dies without it) before P1 (wins the room) before P2 (nice to have). If time or context runs short, polish P0 instead of starting P2.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

@@ -3,26 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --hostname 127.0.0.1 --port 8069",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --hostname 127.0.0.1 --port 8069",
     "lint": "eslint",
     "data:generate": "node scripts/seed-synthetic.mjs",
-    "data:check": "node scripts/verify-synthetic.mjs"
+    "data:check": "node scripts/verify-synthetic.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "motion": "^13.5.0",
     "next": "16.3.8",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^24.19.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^5.0.3"
   }
 }

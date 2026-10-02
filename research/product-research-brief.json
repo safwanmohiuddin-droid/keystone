@@ -1,0 +1,38 @@
+{
+  "recordedOn": "2026-10-02",
+  "location": "Abu Dhabi, UAE",
+  "status": "Research and brainstorming; a local Keystone visual prototype was authorized on 2026-10-02, with final product direction still open",
+  "userRequirements": {
+    "evidence": "Ground problems in real experiences from forums, Reddit, posts and articles; verify procedural claims against official sources",
+    "ranking": "Identify top three problems for companies and top three for individuals",
+    "scope": "Chosen product should cover three to five coherent problems",
+    "experience": "Simple, easy-to-use, creative and distinctive guided walkthrough",
+    "skills": "Use installed design and motion skills when designing the actual product",
+    "constraints": ["No GitHub setup or uploads", "Build the locally authorized visual prototype; final production product direction remains open"]
+  },
+  "researchPriorities": {
+    "companies": ["Corporate bank-account readiness and approval uncertainty", "Jurisdiction, licence, compliance and total-cost clarity", "Employee document readiness and handoffs between HR, PRO and applicant"],
+    "individuals": ["Document and residency delays with unclear next actions", "Upfront housing costs and tenancy readiness", "School availability, transfer documentation and home-school coordination"]
+  },
+  "methodLimit": "Qualitative desk research. Rankings reflect evidence, impact and product fit, not measured prevalence. Forum claims are self-reported; service-provider posts may be promotional.",
+  "candidateDifferentiator": "Evidence-backed next actions with named owners, payment timing and recovery steps across employer, applicant and private providers. Hypothesis to validate, not a claim of worldwide uniqueness.",
+  "sourceLinks": [
+    "https://www.reddit.com/r/abudhabi/comments/1vogjlx/mohre_work_permit_keeps_asking_for_missing/",
+    "https://www.reddit.com/r/abudhabi/comments/1sok1o3/relocating_to_abu_dhabi_rent_upfront_costs_concern/",
+    "https://www.reddit.com/r/abudhabi/comments/1lf13mz/looking_for_school/",
+    "https://www.reddit.com/r/SmallBusinessUAE/comments/1r3hmu0/anyone_who_tried_setting_up_a_business_in_the_uae/",
+    "https://www.reddit.com/r/uae_startups/comments/1v7xvhy/trade_licence_done_business_bank_account_rejected/",
+    "https://www.adgm.com/setting-up",
+    "https://added.gov.ae/en/set-up/establish-your-business/licensing-requirements",
+    "https://tax.gov.ae/en/services/corporate.tax.registration.aspx",
+    "https://tax.gov.ae/en/media.centre/news/federal.tax.authority.issues.public.clarification.on.registration.timelines.for.taxable.persons.for.corporate.tax.aspx",
+    "https://www.mofa.gov.ae/FAQs",
+    "https://www.addc.ae/en-US/residential/Pages/About-Moving-in.aspx",
+    "https://www.adek.gov.ae/-/media/Project/TAMM/ADEK/Policies/School-Policies/Teaching-and-Learning/ADEK_S_Student-Administrative-Affairs-Policy_EN_1_2.pdf",
+    "https://www.bankfab.com/en-ae/personal/accounts/current-accounts/personal-current-account",
+    "https://www.adro.gov.ae/en/Product-And-Service/RELOCATION-SERVICES",
+    "https://play.google.com/store/apps/details?id=abudhabi.tamm.live",
+    "https://www.reddit.com/r/relocating/comments/1rg20wz/created_a_free_relocation_planner_would_love/"
+  ]
+}
+
