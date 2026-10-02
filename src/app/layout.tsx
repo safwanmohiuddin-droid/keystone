@@ -6,6 +6,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import "./responsive.css";
+import "./portal.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

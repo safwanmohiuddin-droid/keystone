@@ -36,6 +36,7 @@ import {
   type Step,
   type Lane,
 } from "@/data";
+import { BankAgent } from "@/components/bank-agent";
 import {
   getSteps,
   dependencies,
@@ -394,6 +395,7 @@ export default function Dashboard({ personaId }: { personaId: string }) {
               </span>
             </aside>
           </div>
+          {next?.id === "bank_account" ? <BankAgent /> : null}
           <section className="unlock-section">
             <div className="section-title">
               <div>
