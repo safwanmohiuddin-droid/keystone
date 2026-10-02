@@ -1,0 +1,310 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "personaId": "priya",
+      "stepIds": [
+        "entry_permit",
+        "arrival",
+        "medical_test",
+        "eid_biometrics",
+        "residence_visa",
+        "eid_card",
+        "local_sim",
+        "bank_account",
+        "salary_transfer",
+        "chequebook",
+        "temp_stay",
+        "apartment_search",
+        "lease_and_cheques",
+        "tawtheeq",
+        "utilities",
+        "internet",
+        "dependent_visas",
+        "dependent_eids",
+        "family_insurance",
+        "school_enrollment",
+        "eye_test",
+        "car_purchase",
+        "car_registration",
+        "driving_training",
+        "driving_ready"
+      ],
+      "dependencies": {
+        "entry_permit": [],
+        "arrival": [
+          "entry_permit"
+        ],
+        "medical_test": [
+          "arrival"
+        ],
+        "eid_biometrics": [
+          "arrival"
+        ],
+        "residence_visa": [
+          "medical_test",
+          "eid_biometrics"
+        ],
+        "eid_card": [
+          "residence_visa"
+        ],
+        "local_sim": [
+          "arrival"
+        ],
+        "bank_account": [
+          "eid_card",
+          "local_sim"
+        ],
+        "salary_transfer": [
+          "bank_account"
+        ],
+        "chequebook": [
+          "bank_account"
+        ],
+        "temp_stay": [
+          "entry_permit"
+        ],
+        "apartment_search": [
+          "arrival"
+        ],
+        "lease_and_cheques": [
+          "apartment_search",
+          "chequebook"
+        ],
+        "tawtheeq": [
+          "lease_and_cheques"
+        ],
+        "utilities": [
+          "tawtheeq"
+        ],
+        "internet": [
+          "lease_and_cheques"
+        ],
+        "dependent_visas": [
+          "residence_visa",
+          "tawtheeq",
+          "salary_transfer"
+        ],
+        "dependent_eids": [
+          "dependent_visas"
+        ],
+        "family_insurance": [
+          "arrival"
+        ],
+        "school_enrollment": [
+          "dependent_eids",
+          "tawtheeq"
+        ],
+        "eye_test": [
+          "eid_card"
+        ],
+        "car_purchase": [
+          "bank_account"
+        ],
+        "car_registration": [
+          "driving_ready",
+          "car_purchase"
+        ],
+        "driving_training": [
+          "eye_test"
+        ],
+        "driving_ready": [
+          "driving_training"
+        ]
+      },
+      "notes": [
+        "These are coherent fictional demo paths, not universally applicable immigration or banking rules.",
+        "The cheque dependency assumes this sample landlord requires cheques; other payment routes exist.",
+        "Utilities represent confirmation of a registration handoff, not an invented duplicate application."
+      ]
+    },
+    {
+      "personaId": "omar",
+      "stepIds": [
+        "entry_permit",
+        "arrival",
+        "medical_test",
+        "eid_biometrics",
+        "residence_visa",
+        "eid_card",
+        "local_sim",
+        "bank_account",
+        "salary_transfer",
+        "chequebook",
+        "temp_stay",
+        "apartment_search",
+        "lease_and_cheques",
+        "tawtheeq",
+        "utilities",
+        "internet"
+      ],
+      "dependencies": {
+        "entry_permit": [],
+        "arrival": [
+          "entry_permit"
+        ],
+        "medical_test": [
+          "arrival"
+        ],
+        "eid_biometrics": [
+          "arrival"
+        ],
+        "residence_visa": [
+          "medical_test",
+          "eid_biometrics"
+        ],
+        "eid_card": [
+          "residence_visa"
+        ],
+        "local_sim": [
+          "arrival"
+        ],
+        "bank_account": [
+          "eid_card",
+          "local_sim"
+        ],
+        "salary_transfer": [
+          "bank_account"
+        ],
+        "chequebook": [
+          "bank_account"
+        ],
+        "temp_stay": [
+          "entry_permit"
+        ],
+        "apartment_search": [
+          "arrival"
+        ],
+        "lease_and_cheques": [
+          "apartment_search",
+          "chequebook"
+        ],
+        "tawtheeq": [
+          "lease_and_cheques"
+        ],
+        "utilities": [
+          "tawtheeq"
+        ],
+        "internet": [
+          "lease_and_cheques"
+        ]
+      },
+      "notes": [
+        "These are coherent fictional demo paths, not universally applicable immigration or banking rules.",
+        "The cheque dependency assumes this sample landlord requires cheques; other payment routes exist.",
+        "Utilities represent confirmation of a registration handoff, not an invented duplicate application."
+      ]
+    },
+    {
+      "personaId": "lena",
+      "stepIds": [
+        "entry_permit",
+        "arrival",
+        "medical_test",
+        "eid_biometrics",
+        "residence_visa",
+        "eid_card",
+        "local_sim",
+        "bank_account",
+        "salary_transfer",
+        "chequebook",
+        "temp_stay",
+        "apartment_search",
+        "lease_and_cheques",
+        "tawtheeq",
+        "utilities",
+        "internet",
+        "family_insurance",
+        "eye_test",
+        "licence_conversion",
+        "car_purchase",
+        "car_registration",
+        "driving_ready"
+      ],
+      "dependencies": {
+        "entry_permit": [],
+        "arrival": [
+          "entry_permit"
+        ],
+        "medical_test": [
+          "arrival"
+        ],
+        "eid_biometrics": [
+          "arrival"
+        ],
+        "residence_visa": [
+          "medical_test",
+          "eid_biometrics"
+        ],
+        "eid_card": [
+          "residence_visa"
+        ],
+        "local_sim": [
+          "arrival"
+        ],
+        "bank_account": [
+          "eid_card",
+          "local_sim"
+        ],
+        "salary_transfer": [
+          "bank_account"
+        ],
+        "chequebook": [
+          "bank_account"
+        ],
+        "temp_stay": [
+          "entry_permit"
+        ],
+        "apartment_search": [
+          "arrival"
+        ],
+        "lease_and_cheques": [
+          "apartment_search",
+          "chequebook"
+        ],
+        "tawtheeq": [
+          "lease_and_cheques"
+        ],
+        "utilities": [
+          "tawtheeq"
+        ],
+        "internet": [
+          "lease_and_cheques"
+        ],
+        "family_insurance": [
+          "arrival"
+        ],
+        "eye_test": [
+          "eid_card"
+        ],
+        "licence_conversion": [
+          "eye_test"
+        ],
+        "car_purchase": [
+          "bank_account"
+        ],
+        "car_registration": [
+          "driving_ready",
+          "car_purchase"
+        ],
+        "driving_ready": [
+          "licence_conversion"
+        ]
+      },
+      "notes": [
+        "These are coherent fictional demo paths, not universally applicable immigration or banking rules.",
+        "The cheque dependency assumes this sample landlord requires cheques; other payment routes exist.",
+        "Utilities represent confirmation of a registration handoff, not an invented duplicate application.",
+        "Spouse-sponsored residence is simplified in this fixture; work-authorisation eligibility requires separate review."
+      ]
+    }
+  ]
+}

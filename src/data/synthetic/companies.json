@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "id": "co-sandstone",
+      "name": "Demo Sandstone Labs",
+      "sector": "Software",
+      "stage": "relocating-small-team",
+      "jurisdiction": "not-yet-selected",
+      "employeePersonaIds": [
+        "priya"
+      ],
+      "teamSize": 8,
+      "setupBudget": 85000,
+      "blockerIds": [
+        "name-mismatch"
+      ],
+      "tasks": [
+        {
+          "id": "activity-review",
+          "title": "Confirm activities and jurisdiction with the authority",
+          "owner": "founder",
+          "status": "doing"
+        },
+        {
+          "id": "bank-pack",
+          "title": "Prepare genuine ownership and business evidence",
+          "owner": "finance",
+          "status": "available"
+        },
+        {
+          "id": "employee-pack",
+          "title": "Review Priya’s document pack",
+          "owner": "HR",
+          "status": "blocked"
+        }
+      ]
+    },
+    {
+      "id": "co-gulf",
+      "name": "Demo Gulf Studio",
+      "sector": "Design",
+      "stage": "operating-and-hiring",
+      "jurisdiction": "demo-mainland",
+      "employeePersonaIds": [
+        "omar"
+      ],
+      "teamSize": 5,
+      "setupBudget": 55000,
+      "blockerIds": [],
+      "tasks": [
+        {
+          "id": "payroll-details",
+          "title": "Confirm employee payroll readiness",
+          "owner": "HR",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "id": "co-palm",
+      "name": "Demo Palm Research",
+      "sector": "Research",
+      "stage": "expansion-planning",
+      "jurisdiction": "not-yet-selected",
+      "employeePersonaIds": [
+        "lena"
+      ],
+      "teamSize": 12,
+      "setupBudget": 120000,
+      "blockerIds": [
+        "bank-rejected"
+      ],
+      "tasks": [
+        {
+          "id": "bank-follow-up",
+          "title": "Confirm outstanding business-bank evidence",
+          "owner": "finance",
+          "status": "blocked"
+        }
+      ]
+    }
+  ]
+}

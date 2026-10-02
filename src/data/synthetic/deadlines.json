@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "id": "priya-hotel",
+      "personaId": "priya",
+      "stepId": "temp_stay",
+      "dueDay": 8,
+      "bookByDay": 6,
+      "label": "Sample hotel booking ends",
+      "kind": "booking",
+      "isLegalDeadline": false,
+      "source": "Fictional accommodation booking"
+    },
+    {
+      "id": "priya-salary",
+      "personaId": "priya",
+      "stepId": "salary_transfer",
+      "dueDay": 25,
+      "bookByDay": 20,
+      "label": "Sample first payroll date",
+      "kind": "employer",
+      "isLegalDeadline": false,
+      "source": "Fictional employer payroll calendar"
+    },
+    {
+      "id": "priya-school",
+      "personaId": "priya",
+      "stepId": "school_enrollment",
+      "dueDay": 24,
+      "bookByDay": 14,
+      "label": "Sample school offer expires",
+      "kind": "provider",
+      "isLegalDeadline": false,
+      "source": "Fictional school offer"
+    },
+    {
+      "id": "omar-hotel",
+      "personaId": "omar",
+      "stepId": "temp_stay",
+      "dueDay": 8,
+      "bookByDay": 6,
+      "label": "Sample hotel booking ends",
+      "kind": "booking",
+      "isLegalDeadline": false,
+      "source": "Fictional accommodation booking"
+    },
+    {
+      "id": "omar-salary",
+      "personaId": "omar",
+      "stepId": "salary_transfer",
+      "dueDay": 25,
+      "bookByDay": 20,
+      "label": "Sample first payroll date",
+      "kind": "employer",
+      "isLegalDeadline": false,
+      "source": "Fictional employer payroll calendar"
+    },
+    {
+      "id": "lena-hotel",
+      "personaId": "lena",
+      "stepId": "temp_stay",
+      "dueDay": 8,
+      "bookByDay": 6,
+      "label": "Sample hotel booking ends",
+      "kind": "booking",
+      "isLegalDeadline": false,
+      "source": "Fictional accommodation booking"
+    },
+    {
+      "id": "lena-salary",
+      "personaId": "lena",
+      "stepId": "salary_transfer",
+      "dueDay": 30,
+      "bookByDay": 25,
+      "label": "Sample first payroll date",
+      "kind": "employer",
+      "isLegalDeadline": false,
+      "source": "Fictional employer payroll calendar"
+    }
+  ]
+}

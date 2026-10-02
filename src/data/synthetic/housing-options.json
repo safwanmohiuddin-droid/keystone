@@ -1,0 +1,400 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "id": "priya-1-cheques",
+      "personaId": "priya",
+      "district": "Al Reem Island",
+      "chequeCount": 1,
+      "annualRent": 108000,
+      "deposit": 5400,
+      "agentFee": 4320,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 108000,
+      "upfrontCash": 122220,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 108000
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    },
+    {
+      "id": "priya-2-cheques",
+      "personaId": "priya",
+      "district": "Al Reem Island",
+      "chequeCount": 2,
+      "annualRent": 109296,
+      "deposit": 5465,
+      "agentFee": 4372,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 54648,
+      "upfrontCash": 68985,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 54648
+        },
+        {
+          "number": 2,
+          "dueDay": 191,
+          "amount": 54648
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    },
+    {
+      "id": "priya-4-cheques",
+      "personaId": "priya",
+      "district": "Al Reem Island",
+      "chequeCount": 4,
+      "annualRent": 111888,
+      "deposit": 5594,
+      "agentFee": 4476,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 27972,
+      "upfrontCash": 42542,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 27972
+        },
+        {
+          "number": 2,
+          "dueDay": 100,
+          "amount": 27972
+        },
+        {
+          "number": 3,
+          "dueDay": 191,
+          "amount": 27972
+        },
+        {
+          "number": 4,
+          "dueDay": 282,
+          "amount": 27972
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    },
+    {
+      "id": "priya-6-cheques",
+      "personaId": "priya",
+      "district": "Al Reem Island",
+      "chequeCount": 6,
+      "annualRent": 114480,
+      "deposit": 5724,
+      "agentFee": 4579,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 19080,
+      "upfrontCash": 33883,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 19080
+        },
+        {
+          "number": 2,
+          "dueDay": 69,
+          "amount": 19080
+        },
+        {
+          "number": 3,
+          "dueDay": 130,
+          "amount": 19080
+        },
+        {
+          "number": 4,
+          "dueDay": 191,
+          "amount": 19080
+        },
+        {
+          "number": 5,
+          "dueDay": 252,
+          "amount": 19080
+        },
+        {
+          "number": 6,
+          "dueDay": 313,
+          "amount": 19080
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    },
+    {
+      "id": "omar-1-cheques",
+      "personaId": "omar",
+      "district": "Al Danah",
+      "chequeCount": 1,
+      "annualRent": 48000,
+      "deposit": 2400,
+      "agentFee": 1920,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 48000,
+      "upfrontCash": 56820,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 48000
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    },
+    {
+      "id": "omar-2-cheques",
+      "personaId": "omar",
+      "district": "Al Danah",
+      "chequeCount": 2,
+      "annualRent": 48576,
+      "deposit": 2429,
+      "agentFee": 1943,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 24288,
+      "upfrontCash": 33160,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 24288
+        },
+        {
+          "number": 2,
+          "dueDay": 191,
+          "amount": 24288
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    },
+    {
+      "id": "omar-4-cheques",
+      "personaId": "omar",
+      "district": "Al Danah",
+      "chequeCount": 4,
+      "annualRent": 49728,
+      "deposit": 2486,
+      "agentFee": 1989,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 12432,
+      "upfrontCash": 21407,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 12432
+        },
+        {
+          "number": 2,
+          "dueDay": 100,
+          "amount": 12432
+        },
+        {
+          "number": 3,
+          "dueDay": 191,
+          "amount": 12432
+        },
+        {
+          "number": 4,
+          "dueDay": 282,
+          "amount": 12432
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    },
+    {
+      "id": "omar-6-cheques",
+      "personaId": "omar",
+      "district": "Al Danah",
+      "chequeCount": 6,
+      "annualRent": 50880,
+      "deposit": 2544,
+      "agentFee": 2035,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 8480,
+      "upfrontCash": 17559,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 8480
+        },
+        {
+          "number": 2,
+          "dueDay": 69,
+          "amount": 8480
+        },
+        {
+          "number": 3,
+          "dueDay": 130,
+          "amount": 8480
+        },
+        {
+          "number": 4,
+          "dueDay": 191,
+          "amount": 8480
+        },
+        {
+          "number": 5,
+          "dueDay": 252,
+          "amount": 8480
+        },
+        {
+          "number": 6,
+          "dueDay": 313,
+          "amount": 8480
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    },
+    {
+      "id": "lena-1-cheques",
+      "personaId": "lena",
+      "district": "Al Raha Beach",
+      "chequeCount": 1,
+      "annualRent": 96000,
+      "deposit": 4800,
+      "agentFee": 3840,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 96000,
+      "upfrontCash": 109140,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 96000
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    },
+    {
+      "id": "lena-2-cheques",
+      "personaId": "lena",
+      "district": "Al Raha Beach",
+      "chequeCount": 2,
+      "annualRent": 97152,
+      "deposit": 4858,
+      "agentFee": 3886,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 48576,
+      "upfrontCash": 61820,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 48576
+        },
+        {
+          "number": 2,
+          "dueDay": 191,
+          "amount": 48576
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    },
+    {
+      "id": "lena-4-cheques",
+      "personaId": "lena",
+      "district": "Al Raha Beach",
+      "chequeCount": 4,
+      "annualRent": 99456,
+      "deposit": 4973,
+      "agentFee": 3978,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 24864,
+      "upfrontCash": 38315,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 24864
+        },
+        {
+          "number": 2,
+          "dueDay": 100,
+          "amount": 24864
+        },
+        {
+          "number": 3,
+          "dueDay": 191,
+          "amount": 24864
+        },
+        {
+          "number": 4,
+          "dueDay": 282,
+          "amount": 24864
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    },
+    {
+      "id": "lena-6-cheques",
+      "personaId": "lena",
+      "district": "Al Raha Beach",
+      "chequeCount": 6,
+      "annualRent": 101760,
+      "deposit": 5088,
+      "agentFee": 4070,
+      "utilityDeposit": 1000,
+      "movingCost": 3500,
+      "firstPayment": 16960,
+      "upfrontCash": 30618,
+      "cheques": [
+        {
+          "number": 1,
+          "dueDay": 9,
+          "amount": 16960
+        },
+        {
+          "number": 2,
+          "dueDay": 69,
+          "amount": 16960
+        },
+        {
+          "number": 3,
+          "dueDay": 130,
+          "amount": 16960
+        },
+        {
+          "number": 4,
+          "dueDay": 191,
+          "amount": 16960
+        },
+        {
+          "number": 5,
+          "dueDay": 252,
+          "amount": 16960
+        },
+        {
+          "number": 6,
+          "dueDay": 313,
+          "amount": 16960
+        }
+      ],
+      "assumption": "Entirely fictional quotes and payment dates. These are not market prices or mandated fees."
+    }
+  ]
+}

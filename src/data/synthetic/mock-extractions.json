@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "personaId": "priya",
+      "inputDocumentIds": [
+        "priya-passport",
+        "priya-offer"
+      ],
+      "delayMs": 1000,
+      "names": [
+        "Priya Ramesh Nair",
+        "Priya R. Nair",
+        "NAIR PRIYA RAMESH"
+      ],
+      "nationality": "Indian",
+      "sponsor": "employer",
+      "family": [
+        {
+          "id": "priya-spouse",
+          "name": "Ramesh Nair",
+          "relationship": "spouse"
+        },
+        {
+          "id": "priya-child-1",
+          "name": "Anaya Nair",
+          "relationship": "child",
+          "age": 8
+        },
+        {
+          "id": "priya-child-2",
+          "name": "Arjun Nair",
+          "relationship": "child",
+          "age": 5
+        }
+      ],
+      "arrivalDate": "2026-10-05",
+      "employer": "Demo Sandstone Labs",
+      "requiresHumanReview": true
+    },
+    {
+      "personaId": "omar",
+      "inputDocumentIds": [
+        "omar-passport",
+        "omar-offer"
+      ],
+      "delayMs": 1000,
+      "names": [
+        "Omar Hassan"
+      ],
+      "nationality": "Egyptian",
+      "sponsor": "employer",
+      "family": [],
+      "arrivalDate": "2026-10-09",
+      "employer": "Demo Gulf Studio",
+      "requiresHumanReview": false
+    },
+    {
+      "personaId": "lena",
+      "inputDocumentIds": [
+        "lena-passport",
+        "lena-offer"
+      ],
+      "delayMs": 1000,
+      "names": [
+        "Lena Fischer"
+      ],
+      "nationality": "German",
+      "sponsor": "spouse",
+      "family": [
+        {
+          "id": "lena-spouse",
+          "name": "Jonas Fischer",
+          "relationship": "spouse"
+        }
+      ],
+      "arrivalDate": "2026-10-12",
+      "employer": "Demo Palm Research",
+      "requiresHumanReview": false
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "id": "bank-rejected",
+      "stepId": "bank_account",
+      "recoveryStepId": "salary_letter",
+      "owner": "HR",
+      "impact": "Bank account remains blocked until the applicant and bank clarify the requested evidence.",
+      "message": "Request the bank’s additional-document checklist. Gather genuine evidence; do not invent reasons or guarantee approval."
+    },
+    {
+      "id": "lease-delayed",
+      "stepId": "lease_and_cheques",
+      "recoveryStepId": "extend_temp_stay",
+      "owner": "landlord",
+      "impact": "Tenancy registration and dependent plans remain pending.",
+      "message": "Confirm a revised lease date and arrange a temporary-stay extension."
+    },
+    {
+      "id": "medical-rescheduled",
+      "stepId": "medical_test",
+      "recoveryStepId": null,
+      "owner": "applicant",
+      "impact": "Residence approval remains pending.",
+      "message": "Confirm a new appointment with the provider and update HR."
+    },
+    {
+      "id": "name-mismatch",
+      "stepId": "bank_account",
+      "recoveryStepId": "name_correction",
+      "owner": "HR",
+      "impact": "Receiving institution needs to review the name variants.",
+      "message": "Ask whether the abbreviation is acceptable or request a corrected employer letter."
+    }
+  ]
+}

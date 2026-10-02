@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "id": "priya",
+      "name": "Priya Ramesh Nair",
+      "displayName": "Priya",
+      "nationality": "Indian",
+      "role": "Software engineer",
+      "employer": "Demo Sandstone Labs",
+      "sponsor": "employer",
+      "hasFamily": true,
+      "hasKids": true,
+      "hasCar": true,
+      "licenceConvertible": false,
+      "family": [
+        {
+          "id": "priya-spouse",
+          "name": "Ramesh Nair",
+          "relationship": "spouse"
+        },
+        {
+          "id": "priya-child-1",
+          "name": "Anaya Nair",
+          "relationship": "child",
+          "age": 8
+        },
+        {
+          "id": "priya-child-2",
+          "name": "Arjun Nair",
+          "relationship": "child",
+          "age": 5
+        }
+      ],
+      "arrivalDate": "2026-10-05",
+      "salaryMonthly": 26000,
+      "relocationAllowance": 18000,
+      "openingCash": 42000,
+      "firstSalaryDay": 25,
+      "district": "Al Reem Island",
+      "annualRent": 108000,
+      "nameVariants": [
+        "Priya Ramesh Nair",
+        "Priya R. Nair",
+        "NAIR PRIYA RAMESH"
+      ],
+      "bio": {
+        "en": "A new role. Two children. One family to settle.",
+        "ar": "وظيفة جديدة وطفلان وأسرة تبدأ حياة جديدة."
+      }
+    },
+    {
+      "id": "omar",
+      "name": "Omar Hassan",
+      "displayName": "Omar",
+      "nationality": "Egyptian",
+      "role": "Product designer",
+      "employer": "Demo Gulf Studio",
+      "sponsor": "employer",
+      "hasFamily": false,
+      "hasKids": false,
+      "hasCar": false,
+      "licenceConvertible": false,
+      "family": [],
+      "arrivalDate": "2026-10-09",
+      "salaryMonthly": 14000,
+      "relocationAllowance": 8000,
+      "openingCash": 22000,
+      "firstSalaryDay": 25,
+      "district": "Al Danah",
+      "annualRent": 48000,
+      "nameVariants": [
+        "Omar Hassan"
+      ],
+      "bio": {
+        "en": "Moving solo. A shared home. A simpler start.",
+        "ar": "انتقال بمفرده وسكن مشترك وبداية أبسط."
+      }
+    },
+    {
+      "id": "lena",
+      "name": "Lena Fischer",
+      "displayName": "Lena",
+      "nationality": "German",
+      "role": "UX researcher",
+      "employer": "Demo Palm Research",
+      "sponsor": "spouse",
+      "hasFamily": true,
+      "hasKids": false,
+      "hasCar": true,
+      "licenceConvertible": true,
+      "family": [
+        {
+          "id": "lena-spouse",
+          "name": "Jonas Fischer",
+          "relationship": "spouse"
+        }
+      ],
+      "arrivalDate": "2026-10-12",
+      "salaryMonthly": 18000,
+      "relocationAllowance": 0,
+      "openingCash": 55000,
+      "firstSalaryDay": 30,
+      "district": "Al Raha Beach",
+      "annualRent": 96000,
+      "nameVariants": [
+        "Lena Fischer"
+      ],
+      "bio": {
+        "en": "Joining her spouse. Preparing to work. Finding her own rhythm.",
+        "ar": "تلتحق بزوجها وتستعد للعمل وتبدأ حياتها الجديدة."
+      }
+    }
+  ]
+}

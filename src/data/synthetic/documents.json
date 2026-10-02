@@ -1,0 +1,381 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "id": "priya-passport",
+      "personaId": "priya",
+      "type": "passport",
+      "title": "Sample passport facts",
+      "name": "Priya Ramesh Nair",
+      "extractedFields": {
+        "fullName": "Priya Ramesh Nair",
+        "nationality": "Indian",
+        "documentNumber": "SYNTHETIC-PRIYA-PASSPORT"
+      },
+      "status": "reviewed",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "priya-offer",
+      "personaId": "priya",
+      "type": "offer_letter",
+      "title": "Sample employment offer",
+      "name": "Priya R. Nair",
+      "extractedFields": {
+        "fullName": "Priya R. Nair",
+        "employer": "Demo Sandstone Labs",
+        "salaryMonthly": 26000,
+        "relocationAllowance": 18000
+      },
+      "status": "needs_review",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "priya-eid",
+      "personaId": "priya",
+      "type": "emirates_id",
+      "title": "Sample Emirates ID facts",
+      "name": "Priya Ramesh Nair",
+      "extractedFields": {
+        "fullName": "Priya Ramesh Nair",
+        "documentNumber": "SYNTHETIC-PRIYA-EID"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "priya-lease",
+      "personaId": "priya",
+      "type": "lease",
+      "title": "Sample lease",
+      "name": "Priya Ramesh Nair",
+      "extractedFields": {
+        "reference": "SYNTHETIC-priya-lease"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "priya-tenancy_registration",
+      "personaId": "priya",
+      "type": "tenancy_registration",
+      "title": "Sample tenancy registration",
+      "name": "Priya Ramesh Nair",
+      "extractedFields": {
+        "reference": "SYNTHETIC-priya-tenancy_registration"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "priya-driving_licence",
+      "personaId": "priya",
+      "type": "driving_licence",
+      "title": "Sample driving licence",
+      "name": "Priya Ramesh Nair",
+      "extractedFields": {
+        "reference": "SYNTHETIC-priya-driving_licence"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "priya-vehicle_insurance",
+      "personaId": "priya",
+      "type": "vehicle_insurance",
+      "title": "Sample vehicle insurance",
+      "name": "Priya Ramesh Nair",
+      "extractedFields": {
+        "reference": "SYNTHETIC-priya-vehicle_insurance"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "priya-marriage_certificate",
+      "personaId": "priya",
+      "type": "marriage_certificate",
+      "title": "Sample marriage certificate",
+      "name": "Priya Ramesh Nair",
+      "extractedFields": {
+        "reference": "SYNTHETIC-priya-marriage_certificate"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "priya-birth_certificate",
+      "personaId": "priya",
+      "type": "birth_certificate",
+      "title": "Sample birth certificate",
+      "name": "Priya Ramesh Nair",
+      "extractedFields": {
+        "reference": "SYNTHETIC-priya-birth_certificate"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "priya-transfer_certificate",
+      "personaId": "priya",
+      "type": "transfer_certificate",
+      "title": "Sample transfer certificate",
+      "name": "Priya Ramesh Nair",
+      "extractedFields": {
+        "reference": "SYNTHETIC-priya-transfer_certificate"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "omar-passport",
+      "personaId": "omar",
+      "type": "passport",
+      "title": "Sample passport facts",
+      "name": "Omar Hassan",
+      "extractedFields": {
+        "fullName": "Omar Hassan",
+        "nationality": "Egyptian",
+        "documentNumber": "SYNTHETIC-OMAR-PASSPORT"
+      },
+      "status": "reviewed",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "omar-offer",
+      "personaId": "omar",
+      "type": "offer_letter",
+      "title": "Sample employment offer",
+      "name": "Omar Hassan",
+      "extractedFields": {
+        "fullName": "Omar Hassan",
+        "employer": "Demo Gulf Studio",
+        "salaryMonthly": 14000,
+        "relocationAllowance": 8000
+      },
+      "status": "reviewed",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "omar-eid",
+      "personaId": "omar",
+      "type": "emirates_id",
+      "title": "Sample Emirates ID facts",
+      "name": "Omar Hassan",
+      "extractedFields": {
+        "fullName": "Omar Hassan",
+        "documentNumber": "SYNTHETIC-OMAR-EID"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "omar-lease",
+      "personaId": "omar",
+      "type": "lease",
+      "title": "Sample lease",
+      "name": "Omar Hassan",
+      "extractedFields": {
+        "reference": "SYNTHETIC-omar-lease"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "omar-tenancy_registration",
+      "personaId": "omar",
+      "type": "tenancy_registration",
+      "title": "Sample tenancy registration",
+      "name": "Omar Hassan",
+      "extractedFields": {
+        "reference": "SYNTHETIC-omar-tenancy_registration"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "omar-driving_licence",
+      "personaId": "omar",
+      "type": "driving_licence",
+      "title": "Sample driving licence",
+      "name": "Omar Hassan",
+      "extractedFields": {
+        "reference": "SYNTHETIC-omar-driving_licence"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "omar-vehicle_insurance",
+      "personaId": "omar",
+      "type": "vehicle_insurance",
+      "title": "Sample vehicle insurance",
+      "name": "Omar Hassan",
+      "extractedFields": {
+        "reference": "SYNTHETIC-omar-vehicle_insurance"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "lena-passport",
+      "personaId": "lena",
+      "type": "passport",
+      "title": "Sample passport facts",
+      "name": "Lena Fischer",
+      "extractedFields": {
+        "fullName": "Lena Fischer",
+        "nationality": "German",
+        "documentNumber": "SYNTHETIC-LENA-PASSPORT"
+      },
+      "status": "reviewed",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "lena-offer",
+      "personaId": "lena",
+      "type": "offer_letter",
+      "title": "Sample employment offer",
+      "name": "Lena Fischer",
+      "extractedFields": {
+        "fullName": "Lena Fischer",
+        "employer": "Demo Palm Research",
+        "salaryMonthly": 18000,
+        "relocationAllowance": 0
+      },
+      "status": "reviewed",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "lena-eid",
+      "personaId": "lena",
+      "type": "emirates_id",
+      "title": "Sample Emirates ID facts",
+      "name": "Lena Fischer",
+      "extractedFields": {
+        "fullName": "Lena Fischer",
+        "documentNumber": "SYNTHETIC-LENA-EID"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "lena-lease",
+      "personaId": "lena",
+      "type": "lease",
+      "title": "Sample lease",
+      "name": "Lena Fischer",
+      "extractedFields": {
+        "reference": "SYNTHETIC-lena-lease"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "lena-tenancy_registration",
+      "personaId": "lena",
+      "type": "tenancy_registration",
+      "title": "Sample tenancy registration",
+      "name": "Lena Fischer",
+      "extractedFields": {
+        "reference": "SYNTHETIC-lena-tenancy_registration"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "lena-driving_licence",
+      "personaId": "lena",
+      "type": "driving_licence",
+      "title": "Sample driving licence",
+      "name": "Lena Fischer",
+      "extractedFields": {
+        "reference": "SYNTHETIC-lena-driving_licence"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "lena-vehicle_insurance",
+      "personaId": "lena",
+      "type": "vehicle_insurance",
+      "title": "Sample vehicle insurance",
+      "name": "Lena Fischer",
+      "extractedFields": {
+        "reference": "SYNTHETIC-lena-vehicle_insurance"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    },
+    {
+      "id": "lena-marriage_certificate",
+      "personaId": "lena",
+      "type": "marriage_certificate",
+      "title": "Sample marriage certificate",
+      "name": "Lena Fischer",
+      "extractedFields": {
+        "reference": "SYNTHETIC-lena-marriage_certificate"
+      },
+      "status": "sample",
+      "synthetic": true,
+      "containsRealPersonalData": false,
+      "fileUrl": null
+    }
+  ]
+}

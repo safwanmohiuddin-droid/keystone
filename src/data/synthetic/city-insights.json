@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": {
+    "population": 240,
+    "period": "Synthetic October 2026 cohort",
+    "label": "Generated fictional cases · no real residents or government records",
+    "blockers": [
+      {
+        "id": "name-mismatch",
+        "count": 62
+      },
+      {
+        "id": "medical-rescheduled",
+        "count": 50
+      },
+      {
+        "id": "lease-delayed",
+        "count": 41
+      },
+      {
+        "id": "bank-rejected",
+        "count": 39
+      }
+    ],
+    "districts": [
+      {
+        "district": "Al Reem Island",
+        "cases": 39,
+        "blockedCases": 32
+      },
+      {
+        "district": "Al Raha Beach",
+        "cases": 42,
+        "blockedCases": 30
+      },
+      {
+        "district": "Al Danah",
+        "cases": 38,
+        "blockedCases": 30
+      },
+      {
+        "district": "Khalifa City",
+        "cases": 40,
+        "blockedCases": 34
+      },
+      {
+        "district": "Yas Island",
+        "cases": 37,
+        "blockedCases": 32
+      },
+      {
+        "district": "Masdar City",
+        "cases": 44,
+        "blockedCases": 34
+      }
+    ],
+    "medianDaysPerStep": [
+      {
+        "stepId": "entry_permit",
+        "medianDays": 2
+      },
+      {
+        "stepId": "arrival",
+        "medianDays": 0
+      },
+      {
+        "stepId": "medical_test",
+        "medianDays": 1
+      },
+      {
+        "stepId": "eid_biometrics",
+        "medianDays": 1
+      },
+      {
+        "stepId": "residence_visa",
+        "medianDays": 3
+      },
+      {
+        "stepId": "eid_card",
+        "medianDays": 2
+      },
+      {
+        "stepId": "local_sim",
+        "medianDays": 1
+      },
+      {
+        "stepId": "bank_account",
+        "medianDays": 2
+      },
+      {
+        "stepId": "salary_transfer",
+        "medianDays": 1
+      },
+      {
+        "stepId": "chequebook",
+        "medianDays": 2
+      },
+      {
+        "stepId": "temp_stay",
+        "medianDays": 1
+      },
+      {
+        "stepId": "apartment_search",
+        "medianDays": 3
+      },
+      {
+        "stepId": "lease_and_cheques",
+        "medianDays": 1
+      },
+      {
+        "stepId": "tawtheeq",
+        "medianDays": 1
+      },
+      {
+        "stepId": "utilities",
+        "medianDays": 1
+      },
+      {
+        "stepId": "internet",
+        "medianDays": 2
+      },
+      {
+        "stepId": "dependent_visas",
+        "medianDays": 4
+      },
+      {
+        "stepId": "dependent_eids",
+        "medianDays": 2
+      },
+      {
+        "stepId": "family_insurance",
+        "medianDays": 1
+      },
+      {
+        "stepId": "school_enrollment",
+        "medianDays": 3
+      },
+      {
+        "stepId": "eye_test",
+        "medianDays": 1
+      },
+      {
+        "stepId": "licence_conversion",
+        "medianDays": 1
+      },
+      {
+        "stepId": "car_purchase",
+        "medianDays": 2
+      },
+      {
+        "stepId": "car_registration",
+        "medianDays": 1
+      },
+      {
+        "stepId": "driving_training",
+        "medianDays": 7
+      },
+      {
+        "stepId": "driving_ready",
+        "medianDays": 0
+      }
+    ]
+  }
+}

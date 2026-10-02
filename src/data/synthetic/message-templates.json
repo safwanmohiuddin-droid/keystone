@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "id": "name-correction",
+      "recipient": "HR",
+      "tone": "formal",
+      "en": "Hello, my sample offer lists Priya R. Nair while my sample passport lists Priya Ramesh Nair. Could you confirm whether the receiving institution requires an updated letter and issue one if needed? Thank you.",
+      "ar": "مرحباً، يرد اسمي مختصراً في خطاب العرض التجريبي، بينما يظهر كاملاً في جواز السفر التجريبي. هل يمكنكم التأكد مما إذا كانت الجهة المستلمة تحتاج إلى خطاب محدث وإصداره عند الحاجة؟ شكراً لكم."
+    },
+    {
+      "id": "lease-follow-up",
+      "recipient": "landlord",
+      "tone": "friendly",
+      "en": "Hello, could you confirm when the lease will be ready and which tenancy-registration process applies? My temporary booking ends soon, so a confirmed date would help me plan. Thank you.",
+      "ar": "مرحباً، هل يمكنكم تأكيد موعد جاهزية عقد الإيجار وإجراءات تسجيله؟ تنتهي إقامتي المؤقتة قريباً، وسيساعدني موعد مؤكد على التخطيط. شكراً لكم."
+    },
+    {
+      "id": "school-admissions",
+      "recipient": "school",
+      "tone": "formal",
+      "en": "Hello, we are relocating with children aged five and eight. Could you confirm year-group availability, the application documents, total fees and whether there is a waiting list? Thank you.",
+      "ar": "مرحباً، ننتقل مع طفلين يبلغ عمرهما خمس وثماني سنوات. هل يمكنكم تأكيد توفر الأماكن والمستندات المطلوبة والرسوم الإجمالية ووجود قائمة انتظار؟ شكراً لكم."
+    },
+    {
+      "id": "bank-follow-up",
+      "recipient": "bank",
+      "tone": "formal",
+      "en": "Hello, could you confirm which documents remain outstanding for my application and the appropriate follow-up channel? I can provide genuine supporting evidence as requested. Thank you.",
+      "ar": "مرحباً، هل يمكنكم تأكيد المستندات الناقصة في طلبي وقناة المتابعة المناسبة؟ يمكنني تقديم المستندات الداعمة المطلوبة. شكراً لكم."
+    }
+  ]
+}

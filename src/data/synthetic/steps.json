@@ -1,0 +1,688 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "id": "entry_permit",
+      "title": {
+        "en": "Check entry arrangements",
+        "ar": "التحقق من إجراءات الدخول"
+      },
+      "lane": "visa",
+      "actor": "federal",
+      "dependsOn": [],
+      "docsNeeded": [],
+      "typicalDays": 2,
+      "conditions": {},
+      "optional": false,
+      "where": "Confirm with ICP / relevant authority",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "arrival",
+      "title": {
+        "en": "Arrive in Abu Dhabi",
+        "ar": "الوصول إلى أبوظبي"
+      },
+      "lane": "visa",
+      "actor": "personal",
+      "dependsOn": [
+        "entry_permit"
+      ],
+      "docsNeeded": [],
+      "typicalDays": 0,
+      "conditions": {},
+      "optional": false,
+      "where": "Applicant, HR or landlord",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "medical_test",
+      "title": {
+        "en": "Attend the medical appointment",
+        "ar": "حضور موعد الفحص الطبي"
+      },
+      "lane": "visa",
+      "actor": "emirate",
+      "dependsOn": [
+        "arrival"
+      ],
+      "docsNeeded": [
+        "passport"
+      ],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": false,
+      "where": "Confirm via TAMM / relevant authority",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "eid_biometrics",
+      "title": {
+        "en": "Attend Emirates ID biometrics",
+        "ar": "حضور موعد البصمة للهوية"
+      },
+      "lane": "visa",
+      "actor": "federal",
+      "dependsOn": [
+        "arrival"
+      ],
+      "docsNeeded": [
+        "passport"
+      ],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": false,
+      "where": "Confirm with ICP / relevant authority",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "residence_visa",
+      "title": {
+        "en": "Confirm residence approval",
+        "ar": "تأكيد الموافقة على الإقامة"
+      },
+      "lane": "visa",
+      "actor": "federal",
+      "dependsOn": [
+        "medical_test",
+        "eid_biometrics"
+      ],
+      "docsNeeded": [
+        "passport"
+      ],
+      "typicalDays": 3,
+      "conditions": {},
+      "optional": false,
+      "where": "Confirm with ICP / relevant authority",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "eid_card",
+      "title": {
+        "en": "Receive Emirates ID",
+        "ar": "استلام الهوية الإماراتية"
+      },
+      "lane": "visa",
+      "actor": "federal",
+      "dependsOn": [
+        "residence_visa"
+      ],
+      "docsNeeded": [],
+      "typicalDays": 2,
+      "conditions": {},
+      "optional": false,
+      "where": "Confirm with ICP / relevant authority",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "local_sim",
+      "title": {
+        "en": "Set up a local phone number",
+        "ar": "تفعيل رقم هاتف محلي"
+      },
+      "lane": "money",
+      "actor": "private",
+      "dependsOn": [
+        "arrival"
+      ],
+      "docsNeeded": [
+        "passport"
+      ],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": false,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "bank_account",
+      "title": {
+        "en": "Prepare and open a bank account",
+        "ar": "تجهيز وفتح حساب مصرفي"
+      },
+      "lane": "money",
+      "actor": "private",
+      "dependsOn": [
+        "eid_card",
+        "local_sim"
+      ],
+      "docsNeeded": [
+        "passport",
+        "emirates_id",
+        "offer_letter"
+      ],
+      "typicalDays": 2,
+      "conditions": {},
+      "optional": false,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "salary_transfer",
+      "title": {
+        "en": "Confirm salary payment details",
+        "ar": "تأكيد تفاصيل تحويل الراتب"
+      },
+      "lane": "money",
+      "actor": "personal",
+      "dependsOn": [
+        "bank_account"
+      ],
+      "docsNeeded": [
+        "offer_letter"
+      ],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": false,
+      "where": "Applicant, HR or landlord",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "chequebook",
+      "title": {
+        "en": "Request a cheque book if needed",
+        "ar": "طلب دفتر شيكات عند الحاجة"
+      },
+      "lane": "money",
+      "actor": "private",
+      "dependsOn": [
+        "bank_account"
+      ],
+      "docsNeeded": [
+        "emirates_id"
+      ],
+      "typicalDays": 2,
+      "conditions": {},
+      "optional": false,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "credit_file",
+      "title": {
+        "en": "Understand your credit profile",
+        "ar": "فهم الملف الائتماني"
+      },
+      "lane": "money",
+      "actor": "private",
+      "dependsOn": [
+        "bank_account"
+      ],
+      "docsNeeded": [
+        "emirates_id"
+      ],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": true,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "temp_stay",
+      "title": {
+        "en": "Confirm temporary accommodation",
+        "ar": "تأكيد السكن المؤقت"
+      },
+      "lane": "home",
+      "actor": "private",
+      "dependsOn": [
+        "entry_permit"
+      ],
+      "docsNeeded": [],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": false,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "apartment_search",
+      "title": {
+        "en": "Shortlist homes and payment options",
+        "ar": "اختيار السكن وخيارات الدفع"
+      },
+      "lane": "home",
+      "actor": "personal",
+      "dependsOn": [
+        "arrival"
+      ],
+      "docsNeeded": [],
+      "typicalDays": 3,
+      "conditions": {},
+      "optional": false,
+      "where": "Applicant, HR or landlord",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "lease_and_cheques",
+      "title": {
+        "en": "Review and sign the demo lease",
+        "ar": "مراجعة وتوقيع عقد الإيجار التجريبي"
+      },
+      "lane": "home",
+      "actor": "personal",
+      "dependsOn": [
+        "apartment_search",
+        "chequebook"
+      ],
+      "docsNeeded": [
+        "passport",
+        "emirates_id"
+      ],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": false,
+      "where": "Applicant, HR or landlord",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "tawtheeq",
+      "title": {
+        "en": "Confirm tenancy registration",
+        "ar": "تأكيد تسجيل عقد الإيجار"
+      },
+      "lane": "home",
+      "actor": "emirate",
+      "dependsOn": [
+        "lease_and_cheques"
+      ],
+      "docsNeeded": [
+        "lease"
+      ],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": false,
+      "where": "Confirm via TAMM / relevant authority",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "utilities",
+      "title": {
+        "en": "Confirm the utility account handoff",
+        "ar": "تأكيد تفعيل حساب الخدمات"
+      },
+      "lane": "home",
+      "actor": "private",
+      "dependsOn": [
+        "tawtheeq"
+      ],
+      "docsNeeded": [
+        "tenancy_registration"
+      ],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": false,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "internet",
+      "title": {
+        "en": "Arrange home internet",
+        "ar": "ترتيب خدمة الإنترنت المنزلي"
+      },
+      "lane": "home",
+      "actor": "private",
+      "dependsOn": [
+        "lease_and_cheques"
+      ],
+      "docsNeeded": [
+        "emirates_id"
+      ],
+      "typicalDays": 2,
+      "conditions": {},
+      "optional": false,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "dependent_visas",
+      "title": {
+        "en": "Prepare dependent residence applications",
+        "ar": "تجهيز طلبات إقامة أفراد الأسرة"
+      },
+      "lane": "family",
+      "actor": "federal",
+      "dependsOn": [
+        "residence_visa",
+        "tawtheeq",
+        "salary_transfer"
+      ],
+      "docsNeeded": [
+        "marriage_certificate",
+        "birth_certificate"
+      ],
+      "typicalDays": 4,
+      "conditions": {
+        "hasFamily": true,
+        "sponsor": "employer"
+      },
+      "optional": false,
+      "where": "Confirm with ICP / relevant authority",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "dependent_eids",
+      "title": {
+        "en": "Confirm dependent Emirates IDs",
+        "ar": "تأكيد هويات أفراد الأسرة"
+      },
+      "lane": "family",
+      "actor": "federal",
+      "dependsOn": [
+        "dependent_visas"
+      ],
+      "docsNeeded": [],
+      "typicalDays": 2,
+      "conditions": {
+        "hasFamily": true,
+        "sponsor": "employer"
+      },
+      "optional": false,
+      "where": "Confirm with ICP / relevant authority",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "family_insurance",
+      "title": {
+        "en": "Confirm family insurance cover",
+        "ar": "تأكيد التأمين الصحي للأسرة"
+      },
+      "lane": "family",
+      "actor": "private",
+      "dependsOn": [
+        "arrival"
+      ],
+      "docsNeeded": [
+        "passport"
+      ],
+      "typicalDays": 1,
+      "conditions": {
+        "hasFamily": true
+      },
+      "optional": false,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "school_enrollment",
+      "title": {
+        "en": "Complete school enrolment",
+        "ar": "إتمام التسجيل المدرسي"
+      },
+      "lane": "family",
+      "actor": "private",
+      "dependsOn": [
+        "dependent_eids",
+        "tawtheeq"
+      ],
+      "docsNeeded": [
+        "birth_certificate",
+        "transfer_certificate"
+      ],
+      "typicalDays": 3,
+      "conditions": {
+        "hasKids": true
+      },
+      "optional": false,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "eye_test",
+      "title": {
+        "en": "Complete the driving eye test",
+        "ar": "إجراء فحص النظر للقيادة"
+      },
+      "lane": "car",
+      "actor": "private",
+      "dependsOn": [
+        "eid_card"
+      ],
+      "docsNeeded": [
+        "emirates_id"
+      ],
+      "typicalDays": 1,
+      "conditions": {
+        "hasCar": true
+      },
+      "optional": false,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "licence_conversion",
+      "title": {
+        "en": "Confirm licence exchange eligibility",
+        "ar": "تأكيد أهلية استبدال رخصة القيادة"
+      },
+      "lane": "car",
+      "actor": "emirate",
+      "dependsOn": [
+        "eye_test"
+      ],
+      "docsNeeded": [
+        "driving_licence"
+      ],
+      "typicalDays": 1,
+      "conditions": {
+        "hasCar": true,
+        "licenceConvertible": true
+      },
+      "optional": false,
+      "where": "Confirm via TAMM / relevant authority",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "car_purchase",
+      "title": {
+        "en": "Choose a vehicle",
+        "ar": "اختيار المركبة"
+      },
+      "lane": "car",
+      "actor": "private",
+      "dependsOn": [
+        "bank_account"
+      ],
+      "docsNeeded": [],
+      "typicalDays": 2,
+      "conditions": {
+        "hasCar": true
+      },
+      "optional": false,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "car_registration",
+      "title": {
+        "en": "Complete vehicle registration",
+        "ar": "إتمام تسجيل المركبة"
+      },
+      "lane": "car",
+      "actor": "emirate",
+      "dependsOn": [
+        "driving_ready",
+        "car_purchase"
+      ],
+      "docsNeeded": [
+        "vehicle_insurance"
+      ],
+      "typicalDays": 1,
+      "conditions": {
+        "hasCar": true
+      },
+      "optional": false,
+      "where": "Confirm via TAMM / relevant authority",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "driving_training",
+      "title": {
+        "en": "Complete the demo training and test route",
+        "ar": "إتمام التدريب والاختبار التجريبي"
+      },
+      "lane": "car",
+      "actor": "emirate",
+      "dependsOn": [
+        "eye_test"
+      ],
+      "docsNeeded": [
+        "emirates_id"
+      ],
+      "typicalDays": 7,
+      "conditions": {
+        "hasCar": true,
+        "licenceConvertible": false
+      },
+      "optional": false,
+      "where": "Confirm via TAMM / relevant authority",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "driving_ready",
+      "title": {
+        "en": "Confirm driving permission",
+        "ar": "تأكيد جاهزية رخصة القيادة"
+      },
+      "lane": "car",
+      "actor": "personal",
+      "dependsOn": [],
+      "docsNeeded": [],
+      "typicalDays": 0,
+      "conditions": {
+        "hasCar": true
+      },
+      "optional": false,
+      "where": "Applicant, HR or landlord",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "salary_letter",
+      "title": {
+        "en": "Request a salary letter",
+        "ar": "طلب شهادة راتب"
+      },
+      "lane": "money",
+      "actor": "personal",
+      "dependsOn": [
+        "arrival"
+      ],
+      "docsNeeded": [
+        "offer_letter"
+      ],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": true,
+      "where": "Applicant, HR or landlord",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "extend_temp_stay",
+      "title": {
+        "en": "Extend temporary accommodation",
+        "ar": "تمديد السكن المؤقت"
+      },
+      "lane": "home",
+      "actor": "private",
+      "dependsOn": [
+        "temp_stay"
+      ],
+      "docsNeeded": [],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": true,
+      "where": "Selected private provider",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    },
+    {
+      "id": "name_correction",
+      "title": {
+        "en": "Clarify document name differences",
+        "ar": "توضيح اختلاف الاسم في المستندات"
+      },
+      "lane": "money",
+      "actor": "personal",
+      "dependsOn": [
+        "arrival"
+      ],
+      "docsNeeded": [
+        "passport",
+        "offer_letter"
+      ],
+      "typicalDays": 1,
+      "conditions": {},
+      "optional": true,
+      "where": "Applicant, HR or landlord",
+      "ruleType": "demo-assumption",
+      "notice": "Demo data · verify the applicable requirements with the provider",
+      "hardDeadline": null
+    }
+  ]
+}

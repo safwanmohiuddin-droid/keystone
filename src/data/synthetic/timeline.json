@@ -1,0 +1,420 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "id": "priya-day-0",
+      "personaId": "priya",
+      "day": 0,
+      "date": "2026-10-05",
+      "completedStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay"
+      ],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay"
+      ],
+      "suggestedStepId": "medical_test",
+      "blockedStepIds": [],
+      "caption": {
+        "en": "Day 0: Check entry arrangements. Arrive in Abu Dhabi. Confirm temporary accommodation.",
+        "ar": "اليوم 0 من الرحلة التجريبية."
+      },
+      "illustrative": true
+    },
+    {
+      "id": "priya-day-1",
+      "personaId": "priya",
+      "day": 1,
+      "date": "2026-10-06",
+      "completedStepIds": [
+        "medical_test",
+        "local_sim"
+      ],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay",
+        "medical_test",
+        "local_sim"
+      ],
+      "suggestedStepId": "eid_biometrics",
+      "blockedStepIds": [],
+      "caption": {
+        "en": "Day 1: Attend the medical appointment. Set up a local phone number.",
+        "ar": "اليوم 1 من الرحلة التجريبية."
+      },
+      "illustrative": true
+    },
+    {
+      "id": "priya-day-3",
+      "personaId": "priya",
+      "day": 3,
+      "date": "2026-10-08",
+      "completedStepIds": [
+        "eid_biometrics",
+        "apartment_search",
+        "family_insurance"
+      ],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay",
+        "medical_test",
+        "local_sim",
+        "eid_biometrics",
+        "apartment_search",
+        "family_insurance"
+      ],
+      "suggestedStepId": "residence_visa",
+      "blockedStepIds": [],
+      "caption": {
+        "en": "Day 3: Attend Emirates ID biometrics. Shortlist homes and payment options. Confirm family insurance cover.",
+        "ar": "اليوم 3 من الرحلة التجريبية."
+      },
+      "illustrative": true
+    },
+    {
+      "id": "priya-day-5",
+      "personaId": "priya",
+      "day": 5,
+      "date": "2026-10-10",
+      "completedStepIds": [
+        "residence_visa",
+        "eid_card"
+      ],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay",
+        "medical_test",
+        "local_sim",
+        "eid_biometrics",
+        "apartment_search",
+        "family_insurance",
+        "residence_visa",
+        "eid_card"
+      ],
+      "suggestedStepId": "bank_account",
+      "blockedStepIds": [],
+      "caption": {
+        "en": "Day 5: Confirm residence approval. Receive Emirates ID.",
+        "ar": "اليوم 5 من الرحلة التجريبية."
+      },
+      "illustrative": true
+    },
+    {
+      "id": "priya-day-6",
+      "personaId": "priya",
+      "day": 6,
+      "date": "2026-10-11",
+      "completedStepIds": [],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay",
+        "medical_test",
+        "local_sim",
+        "eid_biometrics",
+        "apartment_search",
+        "family_insurance",
+        "residence_visa",
+        "eid_card"
+      ],
+      "suggestedStepId": "name_correction",
+      "blockedStepIds": [
+        "bank_account"
+      ],
+      "caption": {
+        "en": "Review the name difference before submitting.",
+        "ar": "اليوم 6 من الرحلة التجريبية."
+      },
+      "illustrative": true
+    },
+    {
+      "id": "priya-day-7",
+      "personaId": "priya",
+      "day": 7,
+      "date": "2026-10-12",
+      "completedStepIds": [
+        "name_correction",
+        "bank_account",
+        "salary_transfer"
+      ],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay",
+        "medical_test",
+        "local_sim",
+        "eid_biometrics",
+        "apartment_search",
+        "family_insurance",
+        "residence_visa",
+        "eid_card",
+        "name_correction",
+        "bank_account",
+        "salary_transfer"
+      ],
+      "suggestedStepId": "chequebook",
+      "blockedStepIds": [],
+      "caption": {
+        "en": "Day 7: Clarify document name differences. Prepare and open a bank account. Confirm salary payment details.",
+        "ar": "اليوم 7 من الرحلة التجريبية."
+      },
+      "illustrative": true
+    },
+    {
+      "id": "priya-day-8",
+      "personaId": "priya",
+      "day": 8,
+      "date": "2026-10-13",
+      "completedStepIds": [
+        "chequebook"
+      ],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay",
+        "medical_test",
+        "local_sim",
+        "eid_biometrics",
+        "apartment_search",
+        "family_insurance",
+        "residence_visa",
+        "eid_card",
+        "name_correction",
+        "bank_account",
+        "salary_transfer",
+        "chequebook"
+      ],
+      "suggestedStepId": "extend_temp_stay",
+      "blockedStepIds": [
+        "lease_and_cheques"
+      ],
+      "caption": {
+        "en": "The lease is delayed. Extend temporary accommodation.",
+        "ar": "تأخر عقد الإيجار. تمديد السكن المؤقت."
+      },
+      "illustrative": true
+    },
+    {
+      "id": "priya-day-9",
+      "personaId": "priya",
+      "day": 9,
+      "date": "2026-10-14",
+      "completedStepIds": [
+        "extend_temp_stay",
+        "lease_and_cheques"
+      ],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay",
+        "medical_test",
+        "local_sim",
+        "eid_biometrics",
+        "apartment_search",
+        "family_insurance",
+        "residence_visa",
+        "eid_card",
+        "name_correction",
+        "bank_account",
+        "salary_transfer",
+        "chequebook",
+        "extend_temp_stay",
+        "lease_and_cheques"
+      ],
+      "suggestedStepId": "tawtheeq",
+      "blockedStepIds": [],
+      "caption": {
+        "en": "Day 9: Extend temporary accommodation. Review and sign the demo lease.",
+        "ar": "اليوم 9 من الرحلة التجريبية."
+      },
+      "illustrative": true
+    },
+    {
+      "id": "priya-day-10",
+      "personaId": "priya",
+      "day": 10,
+      "date": "2026-10-15",
+      "completedStepIds": [
+        "tawtheeq",
+        "utilities"
+      ],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay",
+        "medical_test",
+        "local_sim",
+        "eid_biometrics",
+        "apartment_search",
+        "family_insurance",
+        "residence_visa",
+        "eid_card",
+        "name_correction",
+        "bank_account",
+        "salary_transfer",
+        "chequebook",
+        "extend_temp_stay",
+        "lease_and_cheques",
+        "tawtheeq",
+        "utilities"
+      ],
+      "suggestedStepId": "dependent_visas",
+      "blockedStepIds": [],
+      "caption": {
+        "en": "Day 10: Confirm tenancy registration. Confirm the utility account handoff.",
+        "ar": "اليوم 10 من الرحلة التجريبية."
+      },
+      "illustrative": true
+    },
+    {
+      "id": "priya-day-14",
+      "personaId": "priya",
+      "day": 14,
+      "date": "2026-10-19",
+      "completedStepIds": [
+        "internet",
+        "dependent_visas",
+        "eye_test"
+      ],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay",
+        "medical_test",
+        "local_sim",
+        "eid_biometrics",
+        "apartment_search",
+        "family_insurance",
+        "residence_visa",
+        "eid_card",
+        "name_correction",
+        "bank_account",
+        "salary_transfer",
+        "chequebook",
+        "extend_temp_stay",
+        "lease_and_cheques",
+        "tawtheeq",
+        "utilities",
+        "internet",
+        "dependent_visas",
+        "eye_test"
+      ],
+      "suggestedStepId": "dependent_eids",
+      "blockedStepIds": [],
+      "caption": {
+        "en": "School applications are in progress; final enrolment is still pending.",
+        "ar": "اليوم 14 من الرحلة التجريبية."
+      },
+      "illustrative": true
+    },
+    {
+      "id": "priya-day-21",
+      "personaId": "priya",
+      "day": 21,
+      "date": "2026-10-26",
+      "completedStepIds": [
+        "dependent_eids",
+        "school_enrollment",
+        "driving_training",
+        "driving_ready",
+        "car_purchase"
+      ],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay",
+        "medical_test",
+        "local_sim",
+        "eid_biometrics",
+        "apartment_search",
+        "family_insurance",
+        "residence_visa",
+        "eid_card",
+        "name_correction",
+        "bank_account",
+        "salary_transfer",
+        "chequebook",
+        "extend_temp_stay",
+        "lease_and_cheques",
+        "tawtheeq",
+        "utilities",
+        "internet",
+        "dependent_visas",
+        "eye_test",
+        "dependent_eids",
+        "school_enrollment",
+        "driving_training",
+        "driving_ready",
+        "car_purchase"
+      ],
+      "suggestedStepId": "car_registration",
+      "blockedStepIds": [],
+      "caption": {
+        "en": "Day 21: Confirm dependent Emirates IDs. Complete school enrolment. Complete the demo training and test route. Confirm driving permission. Choose a vehicle.",
+        "ar": "اليوم 21 من الرحلة التجريبية."
+      },
+      "illustrative": true
+    },
+    {
+      "id": "priya-day-30",
+      "personaId": "priya",
+      "day": 30,
+      "date": "2026-11-04",
+      "completedStepIds": [
+        "car_registration",
+        "credit_file"
+      ],
+      "doneStepIds": [
+        "entry_permit",
+        "arrival",
+        "temp_stay",
+        "medical_test",
+        "local_sim",
+        "eid_biometrics",
+        "apartment_search",
+        "family_insurance",
+        "residence_visa",
+        "eid_card",
+        "name_correction",
+        "bank_account",
+        "salary_transfer",
+        "chequebook",
+        "extend_temp_stay",
+        "lease_and_cheques",
+        "tawtheeq",
+        "utilities",
+        "internet",
+        "dependent_visas",
+        "eye_test",
+        "dependent_eids",
+        "school_enrollment",
+        "driving_training",
+        "driving_ready",
+        "car_purchase",
+        "car_registration",
+        "credit_file"
+      ],
+      "suggestedStepId": null,
+      "blockedStepIds": [],
+      "caption": {
+        "en": "Priya’s sample relocation is complete.",
+        "ar": "اكتملت رحلة بريا التجريبية."
+      },
+      "illustrative": true
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "synthetic": true,
+    "seed": 71026,
+    "currency": "AED",
+    "generatedFor": "Keystone visual prototype",
+    "label": "Fictional demo data · not official requirements or market statistics",
+    "rulesReviewed": false
+  },
+  "records": [
+    {
+      "id": "priya-offer-name",
+      "personaId": "priya",
+      "documentIds": [
+        "priya-passport",
+        "priya-offer"
+      ],
+      "variants": [
+        "Priya Ramesh Nair",
+        "Priya R. Nair",
+        "NAIR PRIYA RAMESH"
+      ],
+      "status": "needs-human-review",
+      "severity": "review",
+      "explanation": "An abbreviated name differs from the sample passport name. The receiving institution must confirm whether a correction is required.",
+      "canonicalSuggestion": "Priya Ramesh Nair"
+    }
+  ]
+}
