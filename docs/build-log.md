@@ -18,4 +18,11 @@ Checks: production build, ESLint, five Vitest dependency/eligibility/completion 
 
 Screenshots: `docs/screenshots/landing-desktop.jpg`, `landing-mobile.jpg`, `start-desktop.jpg`, `start-mobile.jpg`, `dashboard-desktop.jpg`, `dashboard-mobile.jpg`, `dashboard-arabic.jpg`, `dashboard-night.jpg`, `city-desktop.jpg`, `city-mobile.jpg`. Screenshots are browser evidence, not official provider data.
 
-Limits: all data and procedural rules are fictional; no uploads, live AI, government/provider integration, persistent progress, WebGL dunes, company dashboard or production security workflow. Original root specification/setup files remain. Next dev appended its standard agent guidance to AGENTS.md. No GitHub repository or remote was created. Server runs locally at port 8069; stop its terminal process to stop the preview. `npm run dev` and `npm start` now default to this port.
+Limits at that point: all data and procedural rules are fictional; no uploads, live AI, government integration, or persistent progress.
+
+## 2 October 2026 — scroll story, still frontend only
+
+Replaced the generic landing with a night scroll story: dune field, a keystone that drops on scroll, a three-line deadlock, a sequence that becomes five lanes, press-and-hold persona change, and a sample step you can mark done. The workspace headline is now the next action, with “I did this” and a plain-language stall picker. No API. People, costs, and timings stay fictional.
+
+Verified in the browser at 1440-wide: hero, keystone drop, problem lines, and the first pass of the order section. The flying labels overlapped, so the order section was changed to a scroll crossfade into lanes. That later pass was typechecked; the browser connection dropped before it was screenshotted again.
+

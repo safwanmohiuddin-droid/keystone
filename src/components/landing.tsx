@@ -1,325 +1,387 @@
 "use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
-  ArrowDown,
-  ArrowRight,
-  Check,
-  Play,
-  MapPin,
-  Buildings,
-  IdentificationCard,
-  Bank,
-  House,
-  Users,
-  Car,
-  ArrowUpRight,
-} from "@phosphor-icons/react";
-import { useState } from "react";
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import Arch from "./arch";
 import Brand from "./brand";
-import { personas } from "@/data";
+import DuneShader from "./dune-shader";
+import HoldToChange from "./hold-to-change";
+import OrderStory from "./order-story";
+import { cityInsights, personas } from "@/data";
+import { getSteps, nextStep } from "@/lib/graph";
+
+const sections = [
+  { id: "intro", en: "Intro", ar: "البداية" },
+  { id: "problem", en: "Problem", ar: "المشكلة" },
+  { id: "order", en: "Order", ar: "الترتيب" },
+  { id: "you", en: "You", ar: "أنت" },
+  { id: "demo", en: "Demo", ar: "التجربة" },
+  { id: "trust", en: "Trust", ar: "الوضوح" },
+  { id: "city", en: "City", ar: "المدينة" },
+  { id: "begin", en: "Begin", ar: "ابدأ" },
+];
+
+const lines = [
+  {
+    lead: { en: "You need an Emirates ID", ar: "تحتاج هوية إماراتية" },
+    rest: { en: "to open a bank account.", ar: "لتفتح حساباً بنكياً." },
+  },
+  {
+    lead: { en: "You need a bank account", ar: "تحتاج حساباً بنكياً" },
+    rest: { en: "for rent cheques.", ar: "لشيكات الإيجار." },
+  },
+  {
+    lead: { en: "You need a lease", ar: "تحتاج عقد إيجار" },
+    rest: { en: "for everything else.", ar: "لكل ما يلي ذلك." },
+  },
+];
+
+const faqs = [
+  {
+    q: { en: "Isn’t this what TAMM does?", ar: "أليس هذا ما يفعله تَم؟" },
+    a: {
+      en: "TAMM organizes Abu Dhabi government services. Keystone lines up your first 90 days across federal, emirate, private, and personal steps, and hands you to TAMM when a step lives there.",
+      ar: "ينظم تَم خدمات حكومة أبوظبي. يرتب كيستون أيامك التسعين الأولى عبر الجهات الاتحادية والمحلية والخاصة والشخصية، ثم يسلمك إلى تَم عندما تكون الخطوة هناك.",
+    },
+  },
+  {
+    q: { en: "Where does the order come from?", ar: "من أين يأتي الترتيب؟" },
+    a: {
+      en: "A curated sample rules engine, not a live reading of the law. Every step in the workspace is marked demo data. Confirm it with the provider.",
+      ar: "محرك قواعد تجريبي، وليس قراءة حية للقانون. كل خطوة في مساحة العمل معلّمة كبيانات تجريبية. أكدها مع الجهة.",
+    },
+  },
+  {
+    q: { en: "What happens to my documents?", ar: "ماذا يحدث لمستنداتي؟" },
+    a: {
+      en: "Nothing. This version never uploads a file. The facts you see are fictional samples stored in the page.",
+      ar: "لا شيء. هذا الإصدار لا يرفع أي ملف. الحقائق التي تراها عينات خيالية داخل الصفحة.",
+    },
+  },
+  {
+    q: { en: "What if something goes wrong?", ar: "ماذا لو تعطل شيء؟" },
+    a: {
+      en: "Say what stalled. The plan pauses that step and points at the next thing you can still do.",
+      ar: "قل ما الذي توقف. توقف الخطة تلك الخطوة وتشير إلى ما يزال بإمكانك فعله.",
+    },
+  },
+  {
+    q: { en: "Who pays for this?", ar: "من يدفع؟" },
+    a: {
+      en: "In the product idea, employers and relocation teams pay. The newcomer does not. This preview is free to click through.",
+      ar: "في فكرة المنتج، تدفع فرق أصحاب العمل والانتقال. الوافد لا يدفع. هذه المعاينة مجانية للتجربة.",
+    },
+  },
+];
+
+const dayFive = [
+  "entry_permit",
+  "arrival",
+  "temp_stay",
+  "medical_test",
+  "local_sim",
+  "eid_biometrics",
+  "apartment_search",
+  "family_insurance",
+  "residence_visa",
+  "eid_card",
+];
 
 export default function Landing() {
-  const [persona, setPersona] = useState(0);
-  const p = personas[persona];
+  const [ar, setAr] = useState(false);
+  const [active, setActive] = useState("intro");
+  const [person, setPerson] = useState(0);
+  const [shifted, setShifted] = useState(false);
+  const [stone, setStone] = useState<"floating" | "dropping" | "set">("floating");
+  const [done, setDone] = useState<string[]>(dayFive);
+  const [openFaq, setOpenFaq] = useState(0);
+  const reduce = useReducedMotion();
+  const heroRef = useRef<HTMLElement>(null);
+  const problemRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll();
+  const { scrollYProgress: heroProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end end"],
+  });
+  const { scrollYProgress: problemProgress } = useScroll({
+    target: problemRef,
+    offset: ["start start", "end end"],
+  });
+  const line0 = useTransform(problemProgress, [0.08, 0.22], [0, 1]);
+  const line1 = useTransform(problemProgress, [0.28, 0.42], [0, 1]);
+  const line2 = useTransform(problemProgress, [0.48, 0.62], [0, 1]);
+  const stat = useTransform(problemProgress, [0.7, 0.86], [0, 1]);
+  const fades = [line0, line1, line2];
+  const t = (en: string, arabic: string) => (ar ? arabic : en);
+  const persona = personas[person];
+  const planSize = getSteps(persona.id).length;
+  const previousSize = getSteps(personas[(person + personas.length - 1) % personas.length].id).length;
+  const delta = planSize - previousSize;
+  const next = nextStep("priya", done);
+  const maxBlock = Math.max(...cityInsights.blockers.map((b) => b.count));
+
+  useMotionValueEvent(heroProgress, "change", (value) => {
+    if (reduce) return;
+    if (value > 0.16) setStone((current) => (current === "floating" ? "dropping" : current));
+  });
+
+  useEffect(() => {
+    if (reduce) setStone("set");
+    const onScroll = () => {
+      const marker = window.innerHeight * 0.32;
+      let current = "intro";
+      for (const section of sections) {
+        const node = document.getElementById(section.id);
+        if (node && node.getBoundingClientRect().top <= marker) current = section.id;
+      }
+      setActive(current);
+    };
+    onScroll();
+    document.addEventListener("scroll", onScroll, true);
+    return () => document.removeEventListener("scroll", onScroll, true);
+  }, [reduce]);
+
   return (
-    <main className="landing night">
-      <header className="site-header">
+    <main className="story night" dir={ar ? "rtl" : "ltr"} lang={ar ? "ar" : "en"}>
+      <motion.div className="scroll-progress" style={{ scaleX: scrollYProgress }} />
+      <header className="story-header">
         <Brand />
-        <nav aria-label="Main">
-          <a href="#the-order">The idea</a>
-          <a href="#your-journey">Your journey</a>
-          <span className="place">
-            <MapPin size={13} /> Abu Dhabi, UAE
-          </span>
-        </nav>
-        <Link href="/start" className="nav-cta">
-          Find your next step <ArrowUpRight size={16} />
-        </Link>
-      </header>
-      <section className="hero">
-        <div className="hero-copy">
-          <div className="eyebrow">
-            <span className="tiny-line" /> A NEW CITY. A CLEARER BEGINNING.
-          </div>
-          <h1>
-            Everyone gets
-            <br />
-            the checklist.
-            <br />
-            You get <em>the order.</em>
-          </h1>
-          <p>
-            A new life in Abu Dhabi is built one step at a time.
-            <br className="desktop-only" /> Know what comes first. And what it
-            opens next.
-          </p>
-          <div className="hero-actions">
-            <Link className="button light" href="/start">
-              Begin your journey <ArrowRight size={18} />
-            </Link>
-            <Link className="text-button" href="/app?persona=priya">
-              <span className="play-icon">
-                <Play size={12} weight="fill" />
-              </span>{" "}
-              Meet Priya’s plan
-            </Link>
-          </div>
-          <div className="hero-note">
-            <span className="status-dot" /> An interactive prototype · built for
-            Abu Dhabi
-          </div>
-        </div>
-        <div className="hero-art">
-          <span className="art-coordinate">24°27′ N &nbsp; 54°22′ E</span>
-          <div className="arch-halo" />
-          <Arch />
-          <div className="keystone-annotation">
-            <span />
-            ONE RIGHT STEP
-            <br />
-            UNLOCKS THE NEXT.
-          </div>
-          <p lang="ar" dir="rtl" className="arabic-hero">
-            حياة جديدة، خطوة بخطوة.
-          </p>
-        </div>
-        <div className="hero-bottom">
-          <span>YOUR LIFE, COMING TOGETHER.</span>
-          <a href="#the-order">
-            Explore the idea <ArrowDown size={14} />
-          </a>
-          <span className="hero-number">01 — 05</span>
-        </div>
-      </section>
-      <section className="manifesto" id="the-order">
-        <div className="section-label">
-          <span>01 / THE MISSING PIECE</span>
-          <span>LESS GUESSWORK. MORE MOMENTUM.</span>
-        </div>
-        <div className="manifesto-grid">
-          <h2>
-            It’s all connected.
-            <br />
-            <em>Until it isn’t.</em>
-          </h2>
-          <div>
-            <p>
-              The bank needs your ID. The lease needs your chequebook. Your
-              family’s next step may depend on your home.
-            </p>
-            <p className="muted">
-              A checklist tells you what to do. Keystone shows you how the
-              pieces fit — and where to begin.
-            </p>
-          </div>
-        </div>
-        <div className="dependency-story">
-          <div>
-            <IdentificationCard size={28} />
-            <span>01</span>
-            <h3>Your identity</h3>
-            <p>The foundation for what follows.</p>
-          </div>
-          <ArrowRight className="story-arrow" />
-          <div>
-            <Bank size={28} />
-            <span>02</span>
-            <h3>Your money</h3>
-            <p>A banking route that’s ready.</p>
-          </div>
-          <ArrowRight className="story-arrow" />
-          <div>
-            <House size={28} />
-            <span>03</span>
-            <h3>Your home</h3>
-            <p>A place for everything to start.</p>
-          </div>
-        </div>
-        <small className="assumption">
-          Illustrative sequence. Your provider and personal circumstances
-          determine the actual requirements.
-        </small>
-      </section>
-      <section className="journey-section" id="your-journey">
-        <div className="section-label">
-          <span>02 / ONE LIFE. FIVE THREADS.</span>
-          <span lang="ar" dir="rtl">
-            كل خطوة تفتح باباً
-          </span>
-        </div>
-        <div className="journey-grid">
-          <div>
-            <h2>
-              A plan that fits
-              <br />
-              <em>your beginning.</em>
-            </h2>
-            <p>
-              You’re more than a visa application.
-              <br />
-              Bring your family, your ambitions and your questions. We’ll put
-              the next step in focus.
-            </p>
-            <div
-              className="persona-tabs"
-              role="group"
-              aria-label="Explore sample journeys"
-            >
-              {personas.map((person, i) => (
-                <button
-                  aria-pressed={persona === i}
-                  onClick={() => setPersona(i)}
-                  key={person.id}
-                >
-                  {person.name.split(" ")[0]}
-                </button>
-              ))}
-            </div>
-            <div className="persona-bio">
-              <span className="avatar">{p.name.charAt(0)}</span>
-              <div>
-                <strong>{p.name}</strong>
-                <p>{p.bio.en}</p>
-              </div>
-            </div>
-            <Link className="text-button" href={`/app?persona=${p.id}`}>
-              Explore {p.name.split(" ")[0]}’s sample plan{" "}
-              <ArrowUpRight size={18} />
-            </Link>
-          </div>
-          <div className="plan-preview">
-            <div className="preview-header">
-              <span className="eyebrow">YOUR UNLOCK ORDER</span>
-              <span className="demo-pill">Demo mode</span>
-            </div>
-            <div className="preview-next">
-              <span className="label">THE KEYSTONE</span>
-              <h3>Open your bank account.</h3>
-              <p>A small step. A home-sized possibility.</p>
-              <span className="preview-unlocks">
-                <ArrowUpRight size={15} /> Unlocks the next part of your journey
-              </span>
-            </div>
-            <div className="preview-lanes">
-              {[
-                [IdentificationCard, "Visa & ID"],
-                [Bank, "Money"],
-                [House, "Home"],
-                [Users, "Family"],
-                [Car, "Car"],
-              ].map(([Icon, name], i) => {
-                const I = Icon as typeof Bank;
-                return (
-                  <div key={String(name)}>
-                    <I size={18} />
-                    <span>{String(name)}</span>
-                    <div className="preview-stones">
-                      {[0, 1, 2, 3].map((n) => (
-                        <span
-                          key={n}
-                          className={
-                            n < i % 3
-                              ? "complete"
-                              : n === i % 3
-                                ? "current"
-                                : ""
-                          }
-                        >
-                          {n < i % 3 ? <Check size={10} /> : null}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="preview-foot">
-              <span>Different threads. One clear direction.</span>
-              <ArrowRight size={16} />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="trust-section">
-        <div className="section-label">
-          <span>03 / BUILT ON CLARITY</span>
-          <span>A GUIDE, WITH ITS LIMITS IN VIEW.</span>
-        </div>
-        <div className="trust-grid">
-          <h2>
-            A little certainty.
-            <br />
-            <em>A lot of honesty.</em>
-          </h2>
-          <div className="faq">
-            {[
-              [
-                "Is this a government service?",
-                "No. Keystone is an independent prototype. It helps you prepare and coordinate; the relevant authority or provider makes the actual decision.",
-              ],
-              [
-                "What is real in this preview?",
-                "The product idea and working interactions. People, documents, costs, dates and the city cohort are synthetic. They demonstrate the experience, not verified advice.",
-              ],
-              [
-                "Can I upload my documents?",
-                "This version uses sample documents only. No personal files are sent to a server. A secure document workflow would be a separate production milestone.",
-              ],
-              [
-                "What happens when a step gets stuck?",
-                "Your plan shows an alternative ready action and a recovery prompt, so one delay does not hide the work you can still do.",
-              ],
-            ].map(([q, a]) => (
-              <details key={q}>
-                <summary>
-                  {q}
-                  <span>+</span>
-                </summary>
-                <p>{a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="closing">
-        <div>
-          <span className="eyebrow">04 / SEE THE BIGGER PICTURE</span>
-          <h2>
-            Many beginnings.
-            <br />
-            <em>One city.</em>
-          </h2>
-          <p>
-            Explore a fictional relocation cohort and see
-            <br />
-            where the journeys get stuck.
-          </p>
-          <Link className="text-button" href="/app/city">
-            <Buildings size={18} /> Open the city view{" "}
-            <ArrowUpRight size={17} />
+        <div className="story-header-actions">
+          <button type="button" className="language-button" onClick={() => setAr(!ar)}>
+            {ar ? "English" : "العربية"}
+          </button>
+          <Link href="/start" className="button light">
+            {t("Begin", "ابدأ")} <ArrowRight size={16} />
           </Link>
         </div>
-        <div className="city-outline" aria-hidden="true">
-          <span>ABU DHABI</span>
-          {Array.from({ length: 19 }, (_, i) => (
-            <i key={i} style={{ height: `${28 + ((i * 37) % 120)}px` }} />
+      </header>
+      <nav className="section-index" aria-label={t("On this page", "في هذه الصفحة")}>
+        {sections.map((section) => (
+          <a key={section.id} href={`#${section.id}`} className={active === section.id ? "active" : ""}>
+            {section[ar ? "ar" : "en"]}
+          </a>
+        ))}
+      </nav>
+
+      <section id="intro" data-section="intro" ref={heroRef} className="story-pin">
+        <div className="story-sticky hero-sticky">
+          <DuneShader />
+          <div className="hero-copy">
+            <h1>
+              {t("Everyone gets the checklist.", "الجميع يحصل على القائمة.")}
+              <em> {t("Keystone gives you the order.", "كيستون يعطيك الترتيب.")}</em>
+            </h1>
+            <p className="arabic-display" lang="ar" dir="rtl">
+              حياة جديدة في أبوظبي. خطوة واحدة تفتح ما بعدها.
+            </p>
+            <div className="hero-actions">
+              <Link className="button light" href="/start">
+                {t("Begin with Priya’s sample", "ابدأ بعينة بريا")} <ArrowRight size={16} />
+              </Link>
+              <a className="text-button" href="#order">
+                {t("See the order change", "شاهد تغير الترتيب")}
+              </a>
+            </div>
+            <p className="story-note">
+              {reduce
+                ? t("The keystone is already set.", "حجر العقد في مكانه.")
+                : t("Scroll to set the keystone.", "مرر لتضع حجر العقد.")}
+            </p>
+          </div>
+          <div className="hero-art">
+            <Arch
+              progress={stone === "set" ? 70 : 40}
+              keystoneState={stone}
+              onSettled={() => setStone("set")}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" data-section="problem" ref={problemRef} className="story-pin">
+        <div className="story-sticky problem-sticky">
+          <div>
+            {lines.map((line, index) => (
+              <motion.p
+                key={line.lead.en}
+                className="staccato"
+                style={{ opacity: reduce || index === 0 ? 1 : fades[index] }}
+              >
+                <em>{line.lead[ar ? "ar" : "en"]}</em> {line.rest[ar ? "ar" : "en"]}
+              </motion.p>
+            ))}
+          </div>
+          <motion.div className="giant-stat" style={{ opacity: reduce ? 1 : stat }}>
+            <strong>5–8</strong>
+            <span>
+              {t(
+                "Weeks typically lost to the wrong order. Illustrative, not a measured result.",
+                "أسابيع تضيع عادة بسبب الترتيب الخاطئ. رقم توضيحي، وليس نتيجة مقاسة.",
+              )}
+            </span>
+          </motion.div>
+        </div>
+      </section>
+
+      <OrderStory ar={ar} />
+
+      <section id="you" data-section="you" className="story-block you-block">
+        <div>
+          <h2>
+            {t("Same city. Same rules.", "المدينة نفسها. القواعد نفسها.")}
+            <em> {t("A different order.", "ترتيب مختلف.")}</em>
+          </h2>
+          <p className="story-lead">
+            {persona.bio[ar ? "ar" : "en"]} {persona.role}. {persona.district}.
+          </p>
+          <p className="persona-facts">
+            {persona.displayName} · {planSize} {t("steps", "خطوات")}
+            {shifted && delta !== 0 && (
+              <span>
+                {" "}
+                {delta > 0 ? "+" : ""}
+                {delta}
+              </span>
+            )}
+          </p>
+          <div className="persona-switch" role="group" aria-label={t("Sample people", "أشخاص تجريبيون")}>
+            {personas.map((item, index) => (
+              <button
+                key={item.id}
+                type="button"
+                aria-pressed={person === index}
+                className={person === index ? "active" : ""}
+                onClick={() => {
+                  setShifted(true);
+                  setPerson(index);
+                }}
+              >
+                {item.displayName}
+              </button>
+            ))}
+          </div>
+          <HoldToChange
+            label={t("Click and hold to become someone else.", "انقر مع الاستمرار لتصبح شخصاً آخر.")}
+            onComplete={() => {
+              setShifted(true);
+              setPerson((index) => (index + 1) % personas.length);
+            }}
+          />
+          <Link className="text-button" href={`/app?persona=${persona.id}`}>
+            {t(`Open ${persona.displayName}’s workspace`, `افتح مساحة ${persona.displayName}`)}{" "}
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+        <ul className="you-lanes">
+          {["visa", "money", "home", "family", "car"].map((lane) => {
+            const count = getSteps(persona.id).filter((step) => step.lane === lane).length;
+            if (!count) return null;
+            const label = { visa: ["Visa & ID", "التأشيرة"], money: ["Money", "المال"], home: ["Home", "المنزل"], family: ["Family", "العائلة"], car: ["Car", "السيارة"] }[lane]!;
+            return (
+              <li key={lane}>
+                <span>{t(label[0], label[1])}</span>
+                <strong>{count}</strong>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      <section id="demo" data-section="demo" className="story-block demo-block">
+        <div className="demo-frame">
+          <header>
+            <span>{t("Priya · sample day 5", "بريا · اليوم الخامس التجريبي")}</span>
+            <span>{t("Demo mode", "وضع تجريبي")}</span>
+          </header>
+          {next ? (
+            <>
+              <p className="demo-kicker">{t("Do this next", "افعل هذا الآن")}</p>
+              <h2>{next.title[ar ? "ar" : "en"]}</h2>
+              <p>
+                {t(
+                  "It is ready, and it opens more of the plan than anything else waiting.",
+                  "هذه الخطوة جاهزة، وتفتح من الخطة أكثر من أي خطوة أخرى بانتظارك.",
+                )}
+              </p>
+              <button
+                type="button"
+                className="button light"
+                onClick={() => setDone((items) => [...items, next.id])}
+              >
+                {t("I did this", "أنجزت هذه الخطوة")}
+              </button>
+            </>
+          ) : (
+            <>
+              <h2>{t("Priya’s sample arch is standing.", "اكتمل قوس بريا التجريبي.")}</h2>
+              <button type="button" className="button light" onClick={() => setDone(dayFive)}>
+                {t("Replay from day 5", "أعد من اليوم الخامس")}
+              </button>
+            </>
+          )}
+          <Link href="/app?persona=priya">
+            {t("Open the full workspace", "افتح مساحة العمل")} <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+
+      <section id="trust" data-section="trust" className="story-block trust-block">
+        <h2>{t("Asked before.", "سُئل من قبل.")}</h2>
+        <div className="faq">
+          {faqs.map((item, index) => (
+            <div key={item.q.en} className={openFaq === index ? "open" : ""}>
+              <button type="button" aria-expanded={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? -1 : index)}>
+                {item.q[ar ? "ar" : "en"]}
+              </button>
+              {openFaq === index && <p>{item.a[ar ? "ar" : "en"]}</p>}
+            </div>
           ))}
         </div>
       </section>
-      <footer>
-        <Brand />
-        <p>Your next chapter starts with one stone.</p>
-        <Link href="/start" className="button light">
-          Place your first stone <ArrowRight size={18} />
-        </Link>
-        <div className="footer-bottom">
-          <span>MADE FOR A NEW LIFE IN ABU DHABI</span>
-          <span>Synthetic demo · no live integrations</span>
-          <span lang="ar" dir="rtl">
-            أبوظبي، بداية جديدة
-          </span>
+
+      <section id="city" data-section="city" className="story-block city-block">
+        <div>
+          <h2>
+            {t("Where the sample city gets stuck.", "حيث تتعثر المدينة التجريبية.")}
+          </h2>
+          <p>
+            {t(
+              `${cityInsights.population} fictional journeys. Not Abu Dhabi statistics.`,
+              `${cityInsights.population} رحلة خيالية. ليست إحصاءات أبوظبي.`,
+            )}
+          </p>
+          <Link className="text-button" href="/app/city">
+            {t("Open the city view", "افتح عرض المدينة")} <ArrowRight size={16} />
+          </Link>
         </div>
+        <ol className="blocker-bars">
+          {cityInsights.blockers.map((blocker) => (
+            <li key={blocker.id}>
+              <span>{blocker.id.replaceAll("-", " ")}</span>
+              <i style={{ transform: `scaleX(${blocker.count / maxBlock})` }} />
+              <strong>{blocker.count}</strong>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <footer id="begin" data-section="begin" className="story-begin">
+        <DuneShader />
+        <h2>
+          <em>{t("Place your first stone.", "ضع حجرك الأول.")}</em>
+        </h2>
+        <Link href="/start" className="button light">
+          {t("Begin", "ابدأ")} <ArrowRight size={18} />
+        </Link>
+        <p>{t("We read the sample. We order it. You walk through it.", "نقرأ العينة. نرتبها. وأنت تسير فيها.")}</p>
       </footer>
     </main>
   );

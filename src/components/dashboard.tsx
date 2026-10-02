@@ -32,6 +32,7 @@ import {
   housingOptions,
   deadlines,
   messageTemplates,
+  blockers,
   type Step,
   type Lane,
 } from "@/data";
@@ -41,6 +42,7 @@ import {
   descendants,
   isAvailable,
   nextStep,
+  reroute,
 } from "@/lib/graph";
 import Arch from "./arch";
 const lanes: { id: Lane; en: string; ar: string; icon: typeof Bank }[] = [
@@ -69,7 +71,9 @@ const initialDone = [
 ];
 export default function Dashboard({ personaId }: { personaId: string }) {
   const persona = personas.find((p) => p.id === personaId) ?? personas[0];
-  const plan = getSteps(persona.id);
+  const [extras, setExtras] = useState<string[]>([]);
+  const [stuckOpen, setStuckOpen] = useState(false);
+  const plan = getSteps(persona.id, extras);
   const [done, setDone] = useState<string[]>(
       initialDone.filter((id) => plan.some((s) => s.id === id)),
     ),
@@ -89,7 +93,7 @@ export default function Dashboard({ personaId }: { personaId: string }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const lang = ar ? "ar" : "en";
   const t = (en: string, arabic: string) => (ar ? arabic : en);
-  const next = nextStep(persona.id, done, blocked);
+  const next = nextStep(persona.id, done, blocked, extras);
   const remaining = plan.filter((s) => !done.includes(s.id));
   const progress = Math.round((done.length / plan.length) * 100);
   const quote = housingOptions.find(
@@ -103,10 +107,17 @@ export default function Dashboard({ personaId }: { personaId: string }) {
     dialog.current?.showModal();
   };
   const complete = (s: Step) => {
-    if (!isAvailable(persona.id, s.id, done) || blocked.includes(s.id)) return;
+    if (!isAvailable(persona.id, s.id, done, extras) || blocked.includes(s.id))
+      return;
+    const opened = descendants(persona.id, s.id, extras).filter(
+      (id) => !done.includes(id),
+    ).length;
     setDone((d) => [...d, s.id]);
     setMessage(
-      `${s.title[lang]} ${t("completed. Your next step is ready.", "مكتملة. خطوتك التالية جاهزة.")}`,
+      t(
+        `${s.title.en} done. ${opened} steps unlocked.`,
+        `${s.title.ar} مكتملة. فُتحت ${opened} خطوات.`,
+      ),
     );
     dialog.current?.close();
   };
@@ -116,6 +127,7 @@ export default function Dashboard({ personaId }: { personaId: string }) {
     setDay(c.day);
     setDone(c.doneStepIds.filter((id) => plan.some((s) => s.id === id)));
     setBlocked(c.blockedStepIds.filter((id) => plan.some((s) => s.id === id)));
+    setExtras([]);
     setMessage(c.caption[lang]);
   };
   useEffect(() => {
@@ -145,6 +157,7 @@ export default function Dashboard({ personaId }: { personaId: string }) {
     setPlaying(false);
     setDone(initialDone.filter((id) => plan.some((s) => s.id === id)));
     setBlocked([]);
+    setExtras([]);
     setDay(5);
     setChapter(3);
     setDocReviewed(false);
@@ -152,16 +165,15 @@ export default function Dashboard({ personaId }: { personaId: string }) {
       t("Sample plan reset to day 5.", "أعيدت الخطة إلى اليوم الخامس."),
     );
   };
-  const block = (id: string) => {
-    if (id === "bank_account") setDraft("bank-follow-up");
-    if (id === "lease_and_cheques") setDraft("lease-follow-up");
-    setBlocked((b) => (b.includes(id) ? b : [...b, id]));
-    setMessage(
-      t(
-        "That step is paused. Your next action now uses another ready route.",
-        "توقفت هذه الخطوة. يمكنك متابعة مسار آخر جاهز.",
-      ),
-    );
+  const applyBlocker = (eventId: string) => {
+    const result = reroute(persona.id, done, blocked, extras, eventId);
+    if (eventId === "bank-rejected" || eventId === "name-mismatch")
+      setDraft(eventId === "name-mismatch" ? "name-correction" : "bank-follow-up");
+    if (eventId === "lease-delayed") setDraft("lease-follow-up");
+    setBlocked(result.blocked);
+    setExtras(result.extras);
+    setStuckOpen(false);
+    setMessage(result.diff.summary[lang]);
     dialog.current?.close();
   };
   return (
@@ -223,16 +235,20 @@ export default function Dashboard({ personaId }: { personaId: string }) {
                 {t("DAY", "اليوم")} {String(day).padStart(2, "0")} · ABU DHABI
               </span>
               <h1>
-                {t(
-                  `A little closer, ${persona.name.split(" ")[0]}.`,
-                  `اقتربت خطوة، ${persona.name.split(" ")[0]}.`,
-                )}
+                {next
+                  ? next.title[lang]
+                  : t("The sample arch is standing.", "اكتمل القوس التجريبي.")}
               </h1>
               <p>
-                {t(
-                  "Five threads of a new life. One clear next step.",
-                  "خمسة مسارات لحياة جديدة. وخطوة تالية واضحة.",
-                )}
+                {next
+                  ? t(
+                      "This is the one ready step that opens the most. Everything else can wait.",
+                      "هذه هي الخطوة الجاهزة التي تفتح أكثر ما بعدها. الباقي يمكن أن ينتظر.",
+                    )
+                  : t(
+                      "Every ready step in the sample plan is placed or paused.",
+                      "كل خطوة جاهزة في الخطة التجريبية اكتملت أو توقفت.",
+                    )}
               </p>
             </div>
             <div className="journey-progress">
@@ -260,13 +276,12 @@ export default function Dashboard({ personaId }: { personaId: string }) {
               {next ? (
                 <>
                   <h2>
-                    {next.title[lang]}
-                    <span className="heading-period">.</span>
+                    {t("Do this before the rest.", "افعل هذا قبل الباقي.")}
                   </h2>
                   <p>
                     {t(
-                      "This is ready now. Do it first to open the most remaining steps in your sample plan.",
-                      "هذه الخطوة جاهزة الآن. ابدأ بها لفتح أكبر عدد من الخطوات المتبقية في الخطة التجريبية.",
+                      "Mark the sample when it’s done. Nothing is sent to a bank, a landlord, or TAMM.",
+                      "علّم العينة عند إنجازها. لا يُرسل شيء إلى بنك أو مالك أو تَم.",
                     )}
                   </p>
                   <div className="today-meta">
@@ -277,7 +292,7 @@ export default function Dashboard({ personaId }: { personaId: string }) {
                     <span>
                       <ArrowUpRight size={15} />
                       {
-                        descendants(persona.id, next.id).filter(
+                        descendants(persona.id, next.id, extras).filter(
                           (id) => !done.includes(id),
                         ).length
                       }{" "}
@@ -287,17 +302,20 @@ export default function Dashboard({ personaId }: { personaId: string }) {
                   <div className="today-actions">
                     <button
                       className="button primary"
-                      onClick={() => open(next)}
+                      onClick={() => complete(next)}
                     >
-                      {t("Walk me through it", "أرشدني خطوة بخطوة")}
-                      <ArrowRight size={18} />
+                      {t("I did this", "أنجزت هذه الخطوة")}
+                      <Check size={18} />
+                    </button>
+                    <button className="text-button" onClick={() => open(next)}>
+                      {t("What it needs", "ماذا تحتاج")}
+                      <ArrowRight size={15} />
                     </button>
                     <button
                       className="text-button"
-                      onClick={() => block(next.id)}
+                      onClick={() => setStuckOpen(true)}
                     >
-                      {t("This step is stuck", "هذه الخطوة متوقفة")}
-                      <ArrowUpRight size={15} />
+                      {t("Something went wrong", "حدث خطأ")}
                     </button>
                   </div>
                 </>
@@ -426,7 +444,7 @@ export default function Dashboard({ personaId }: { personaId: string }) {
                               ? "blocked"
                               : s.id === next?.id
                                 ? "keystone"
-                                : isAvailable(persona.id, s.id, done)
+                                : isAvailable(persona.id, s.id, done, extras)
                                   ? "ready"
                                   : "locked";
                           return (
@@ -738,6 +756,39 @@ export default function Dashboard({ personaId }: { personaId: string }) {
           </>
         )}
       </div>
+      {stuckOpen && (
+        <div className="stuck-layer" role="presentation" onClick={() => setStuckOpen(false)}>
+          <div
+            className="stuck-sheet"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="stuck-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <h2 id="stuck-title">{t("What went wrong?", "ما الذي حدث؟")}</h2>
+            <p>
+              {t(
+                "Pick the stall. The sample plan will pause that step and show the next thing you can still do.",
+                "اختر العائق. ستوقف الخطة التجريبية تلك الخطوة وتظهر ما يزال بإمكانك فعله.",
+              )}
+            </p>
+            {blockers.map((item) => (
+              <button key={item.id} type="button" onClick={() => applyBlocker(item.id)}>
+                {item.id === "bank-rejected"
+                  ? t("The bank asked for more", "طلب البنك المزيد")
+                  : item.id === "lease-delayed"
+                    ? t("The landlord delayed the lease", "تأخر المالك في العقد")
+                    : item.id === "medical-rescheduled"
+                      ? t("The medical test moved", "تأجل الفحص الطبي")
+                      : t("The names don’t match", "الأسماء غير متطابقة")}
+              </button>
+            ))}
+            <button type="button" className="text-button" onClick={() => setStuckOpen(false)}>
+              {t("Cancel", "إلغاء")}
+            </button>
+          </div>
+        </div>
+      )}
       <dialog
         ref={dialog}
         className="step-dialog"
@@ -810,7 +861,7 @@ export default function Dashboard({ personaId }: { personaId: string }) {
               )}
               <h3>{t("What this opens", "ما تفتحه هذه الخطوة")}</h3>
               <p>
-                {descendants(persona.id, selected.id).length}{" "}
+                {descendants(persona.id, selected.id, extras).length}{" "}
                 {t(
                   "downstream steps in your sample journey.",
                   "خطوات لاحقة في رحلتك التجريبية.",
@@ -848,7 +899,7 @@ export default function Dashboard({ personaId }: { personaId: string }) {
               ) : (
                 <button
                   className="button primary"
-                  disabled={!isAvailable(persona.id, selected.id, done)}
+                  disabled={!isAvailable(persona.id, selected.id, done, extras)}
                   onClick={() => complete(selected)}
                 >
                   {t("Mark sample step complete", "إكمال الخطوة التجريبية")}
@@ -857,10 +908,13 @@ export default function Dashboard({ personaId }: { personaId: string }) {
               )}
               {!done.includes(selected.id) &&
                 !blocked.includes(selected.id) &&
-                isAvailable(persona.id, selected.id, done) && (
+                isAvailable(persona.id, selected.id, done, extras) && (
                   <button
                     className="text-button"
-                    onClick={() => block(selected.id)}
+                    onClick={() => {
+                      setStuckOpen(true);
+                      dialog.current?.close();
+                    }}
                   >
                     {t("I’m stuck", "أنا عالق")}
                   </button>
